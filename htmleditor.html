@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monaco Code Editor</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/standalone.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/parser-html.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/parser-css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.8/parser-babel.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -78,10 +74,10 @@
                 });
             }
 
-          const htmlEditor = createEditor('htmlEditor', 'html', '<p>Hello</p>');
-const cssEditor = createEditor('cssEditor', 'css', 'p { color: red; }');
-const jsEditor = createEditor('jsEditor', 'javascript', `document.querySelector('p').innerText = 'Hi!';`);
-
+            const htmlEditor = createEditor('htmlEditor', 'html', '<h1>Hello world</h1>');
+            const cssEditor = createEditor('cssEditor', 'css', 'h1{color : red}');
+            const jsEditor = createEditor('jsEditor', 'javascript', `const abc = document.querySelector("h1")
+abc.style.color = "blue"`);
 
             function formatCode(editor, parser) {
                 const value = editor.getValue();
@@ -135,11 +131,3 @@ const jsEditor = createEditor('jsEditor', 'javascript', `document.querySelector(
     </script>
 </body>
 </html>
-
-    const htmlEditor = createEditor('htmlEditor', 'html', '<div class="plate">ABC-1234</div>');
-            const cssEditor = createEditor('cssEditor', 'css', '.plate { font-size: 24px; font-weight: bold; background: yellow; padding: 10px; text-align: center; border: 2px solid black; }');
-            const jsEditor = createEditor('jsEditor', 'javascript', `document.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('.plate').innerText = 'XYZ-5678';
-            });`);
-
-demo code will be in small 
