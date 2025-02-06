@@ -78,15 +78,22 @@
                 });
             }
 
-            const htmlEditor = createEditor('htmlEditor', 'html', '<h1>ABC-1234</h1>');
-            const cssEditor = createEditor('cssEditor', 'css', 'h1{ color : red}');
-            const jsEditor = createEditor('jsEditor', 'javascript', ' ';
-            });`);
+          const htmlEditor = createEditor('htmlEditor', 'html', '<p>Hello</p>');
+const cssEditor = createEditor('cssEditor', 'css', 'p { color: red; }');
+const jsEditor = createEditor('jsEditor', 'javascript', `document.querySelector('p').innerText = 'Hi!';`);
 
-            function formatCode(editor, language) {
+
+            function formatCode(editor, parser) {
                 const value = editor.getValue();
-                const formatted = prettier.format(value, { parser: language, plugins: prettierPlugins });
-                editor.setValue(formatted);
+                try {
+                    const formatted = prettier.format(value, {
+                        parser: parser,
+                        plugins: [prettierPlugins.html, prettierPlugins.css, prettierPlugins.babel]
+                    });
+                    editor.setValue(formatted);
+                } catch (error) {
+                    console.error("Formatting error:", error);
+                }
             }
 
             function updatePreview() {
@@ -113,7 +120,9 @@
             [htmlEditor, cssEditor, jsEditor].forEach(editor => {
                 editor.onDidChangeModelContent(() => updatePreview());
                 editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyF, () => {
-                    formatCode(editor, editor.getModel().getLanguageId());
+                    const language = editor.getModel().getLanguageId();
+                    const parser = language === 'html' ? 'html' : language === 'css' ? 'css' : 'babel';
+                    formatCode(editor, parser);
                 });
             });
 
@@ -126,3 +135,11 @@
     </script>
 </body>
 </html>
+
+    const htmlEditor = createEditor('htmlEditor', 'html', '<div class="plate">ABC-1234</div>');
+            const cssEditor = createEditor('cssEditor', 'css', '.plate { font-size: 24px; font-weight: bold; background: yellow; padding: 10px; text-align: center; border: 2px solid black; }');
+            const jsEditor = createEditor('jsEditor', 'javascript', `document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('.plate').innerText = 'XYZ-5678';
+            });`);
+
+demo code will be in small 
