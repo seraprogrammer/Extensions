@@ -3,249 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Fundamentals Guide</title>
+    <title>Complete JavaScript Guide - Basic to Intermediate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        /* Global reset and basic styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
             padding: 20px;
-            flex-direction: column;
         }
 
-        /* Container styles */
         .container {
             width: 100%;
-            max-width: 900px;
-            background: #fff;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* Tabs styling */
-        .tabs {
-            display: flex;
-            justify-content: space-evenly;
-            margin-bottom: 30px;
+        .navigation {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 250px;
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .tab {
-            padding: 12px 40px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            background-color: #f2f2f2;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            color: #333;
-            text-transform: uppercase;
-        }
-
-        .tab:hover {
-            background-color: #ff7b7b;
-            color: white;
-        }
-
-        .active {
-            background-color: #ff7b7b;
-            color: white;
-            border: 2px solid #ff7b7b;
-        }
-
-        /* Content styling */
-        .content {
+        .navigation a {
+            color: #e0e0e0;
+            text-decoration: none;
             display: block;
-            font-size: 18px;
-            line-height: 1.6;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background: #7c4dff;
+            color: white;
         }
 
         h1 {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 15px;
+            font-size: 32px;
+            color: #7c4dff;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        p {
-            margin: 15px 0;
-        }
-
-        /* Styling for code-like sections */
-        pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-family: 'Courier New', Courier, monospace;
-            color: #555;
-            overflow-x: auto;
-        }
-
-        /* Styling for links in content */
-        a {
-            color: #ff7b7b;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Modern and interactive content box */
         .content-box {
-            background: #f8f8f8;
-            padding: 20px;
+            background: #333;
+            padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 25px 0;
+            border-left: 4px solid #7c4dff;
         }
 
         .content-box h2 {
             font-size: 24px;
-            color: #555;
-            margin-bottom: 10px;
+            color: #7c4dff;
+            margin-bottom: 15px;
+        }
+
+        .content-box h3 {
+            font-size: 20px;
+            color: #9e9eff;
+            margin: 20px 0 10px 0;
         }
 
         .content-box p {
-            color: #666;
+            color: #e0e0e0;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        pre[class*="language-"] {
+            margin: 15px 0;
+            border-radius: 8px;
+            padding: 20px !important;
+        }
+
+        code[class*="language-"] {
+            font-size: 15px;
+        }
+
+        .note {
+            background: #3d3d3d;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #FFD700;
+        }
+
+        .example-output {
+            background: #404040;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: monospace;
+            color: #4CAF50;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="tabs">
-            <div id="englishTab" class="tab active">English</div>
+        <h1>Complete JavaScript Guide</h1>
+
+        <!-- 1. Basic JavaScript Fundamentals -->
+        <div class="content-box" id="basics">
+            <h2>1. JavaScript Fundamentals</h2>
+            
+            <h3>Variables and Data Types</h3>
+            <pre><code class="language-javascript">// Variable declarations
+let name = 'John';              // String
+const age = 25;                 // Number
+var isStudent = true;           // Boolean
+let fruits = ['apple', 'banana']; // Array
+let person = {                  // Object
+    name: 'John',
+    age: 25
+};
+let empty = null;              // Null
+let undefined_var;             // Undefined
+let symbol = Symbol('id');     // Symbol
+let bigInt = 9007199254740991n; // BigInt</code></pre>
+
+            <h3>Type Conversion and Coercion</h3>
+            <pre><code class="language-javascript">// Type conversion
+String(123)          // "123"
+Number("123")        // 123
+Boolean(1)           // true
+
+// Type coercion
+"123" + 1           // "1231"
+"123" - 1           // 122
+true + 1            // 2</code></pre>
         </div>
 
-        <div id="english" class="content">
-            <h1>JavaScript Fundamentals Guide</h1>
-
-            <div class="content-box">
-                <h2>Introduction</h2>
-                <p>Welcome to the # JavaScript Fundamentals Guide! This guide covers all the key topics of JavaScript that even a kid can learn and understand. Let's begin our journey to becoming a JavaScript pro!</p>
-            </div>
-
-            <div class="content-box">
-                <h2>1. What is JavaScript?</h2>
-                <p>JavaScript is a programming language used to make websites interactive. It helps you add things like buttons that do stuff when you click them, moving images, and even games!</p>
-            </div>
-
-            <div class="content-box">
-                <h2>2. Variables and Data Types</h2>
-                <p>In JavaScript, we use variables to store information. Imagine a variable as a box where you keep things like numbers, words, and even more complicated stuff.</p>
-                <pre>
-let age = 10; // This is a number
-let name = 'Alice'; // This is a string (word)
-let isHappy = true; // This is a boolean (true or false)
-                </pre>
-            </div>
-
-            <div class="content-box">
-                <h2>3. Functions</h2>
-                <p>Functions are like machines that do a job for you. You give them some input, and they give you an output. Think of it like a vending machine — you put in money (input) and get candy (output)!</p>
-                <pre>
-function greet() {
-    console.log('Hello, welcome to the world of JavaScript!');
+        <!-- 2. ES6+ Features -->
+        <div class="content-box" id="es6">
+            <h2>2. ES6+ Modern JavaScript</h2>
+            
+            <h3>Let and Const</h3>
+            <pre><code class="language-javascript">// Block scoping
+{
+    let blockScoped = 'only available here';
+    const CONSTANT = 'cannot be reassigned';
 }
-greet(); // This calls the function
-                </pre>
-            </div>
 
-            <div class="content-box">
-                <h2>4. Loops</h2>
-                <p>Loops let you repeat actions without writing them over and over again. It's like saying, "Do this 5 times!"</p>
-                <pre>
-for (let i = 0; i < 5; i++) {
-    console.log('This will print 5 times!');
+// Template Literals
+const name = 'John';
+const greeting = `Hello ${name}!`;
+
+// Arrow Functions
+const add = (a, b) => a + b;
+const multiply = (a, b) => {
+    return a * b;
+};</code></pre>
+
+            <h3>Destructuring</h3>
+            <pre><code class="language-javascript">// Array destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+
+// Object destructuring
+const { name, age, country = 'USA' } = person;
+
+// Nested destructuring
+const {
+    address: { street, city }
+} = complexObject;</code></pre>
+
+            <h3>Spread and Rest Operators</h3>
+            <pre><code class="language-javascript">// Spread operator
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4, 5];
+
+// Rest parameters
+function sum(...numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
 }
-                </pre>
-            </div>
 
-            <div class="content-box">
-                <h2>5. Conditionals (if, else)</h2>
-                <p>Conditionals are used to make decisions. If something is true, you can do one thing; if it's false, you can do something else.</p>
-                <pre>
-let age = 10;
-if (age >= 18) {
-    console.log('You are an adult!');
-} else {
-    console.log('You are a kid!');
+// Object spread
+const baseConfig = { api: 'http://api.example.com' };
+const config = { ...baseConfig, timeout: 5000 };</code></pre>
+        </div>
+
+        <!-- 3. Functions Advanced -->
+        <div class="content-box" id="functions">
+            <h2>3. Advanced Functions</h2>
+            
+            <h3>Function Types and Patterns</h3>
+            <pre><code class="language-javascript">// Function declaration
+function greet(name) {
+    return `Hello ${name}`;
 }
-                </pre>
-            </div>
 
-            <div class="content-box">
-                <h2>6. Arrays</h2>
-                <p>Arrays are like a list where you can store many items, such as numbers, words, or even other lists. Think of it like a box where you store your favorite things.</p>
-                <pre>
-let fruits = ['Apple', 'Banana', 'Orange'];
-console.log(fruits[0]); // This will print 'Apple'
-                </pre>
-            </div>
-
-            <div class="content-box">
-                <h2>7. Objects</h2>
-                <p>Objects are like a collection of things. Each thing inside an object has a name and a value. For example, a person can have a name, age, and job.</p>
-                <pre>
-let person = {
-    name: 'Alice',
-    age: 10,
-    job: 'Student'
+// Function expression
+const greetExpr = function(name) {
+    return `Hello ${name}`;
 };
-console.log(person.name); // This will print 'Alice'
-                </pre>
-            </div>
 
-            <div class="content-box">
-                <h2>8. Events</h2>
-                <p>Events let you interact with the user. For example, when you click a button, JavaScript can do something, like changing text or showing a message.</p>
-                <pre>
-let button = document.querySelector('button');
-button.addEventListener('click', function() {
-    alert('Button clicked!');
-});
-                </pre>
-            </div>
+// Arrow function
+const greetArrow = name => `Hello ${name}`;
 
-            <div class="content-box">
-                <h2>9. Loops (while and do-while)</h2>
-                <p>Besides "for" loops, there are other types of loops, like "while" and "do-while" loops. These can be used when you don't know how many times you'll need to repeat an action.</p>
-                <pre>
-let count = 0;
-while (count < 5) {
-    console.log('This will print until count is 5');
-    count++;
+// IIFE (Immediately Invoked Function Expression)
+(function() {
+    console.log('Executed immediately');
+})();</code></pre>
+
+            <h3>Closures and Scope</h3>
+            <pre><code class="language-javascript">function counter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
 }
-                </pre>
-            </div>
 
-            <div class="content-box">
-                <h2>10. Basic Debugging</h2>
-                <p>When something isn't working, JavaScript has tools to help you find out what's wrong. One such tool is <code>console.log()</code>, which prints messages to the console to help you see what's going on.</p>
-                <pre>
-let x = 10;
-console.log(x); // This will print '10'
-                </pre>
-            </div>
+const myCounter = counter();
+myCounter.increment(); // 1
+myCounter.increment(); // 2</code></pre>
 
-            <div class="content-box">
-                <h2>11. Conclusion</h2>
-                <p>These are the basics of JavaScript! With practice, you'll be able to build your own interactive websites and even games. Keep experimenting and learning!</p>
-            </div>
+            <h3>Higher-Order Functions</h3>
+            <pre><code class="language-javascript">// Function that returns a function
+const multiply = (factor) => {
+    return (number) => number * factor;
+};
+
+const double = multiply(2);
+double(5); // 10
+
+// Function that takes a function as argument
+const applyOperation = (numbers, operation) => {
+    return numbers.map(operation);
+};</code></pre>
+        </div>
+
+        <!-- 4. Arrays and Objects Advanced -->
+        <div class="content-box" id="arrays-objects">
+            <h2>4. Advanced Arrays and Objects</h2>
+            
+            <h3>Array Methods</h3>
+            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// map, filter, reduce
+const doubled = numbers.map(n => n * 2);
+const evens = numbers.filter(n => n % 2 === 0);
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+// find, some, every
+const found = numbers.find(n => n > 3);
+const hasEven = numbers.some(n => n % 2 === 0);
+const allPositive = numbers.every(n => n > 0);
+
+// Array manipulation
+const removed = numbers.splice(2, 1, 6);
+const sliced = numbers.slice(1, 3);
+const combined = [...numbers, ...evens];</code></pre>
+
+            <h3>Object Methods and Properties</h3>
+            <pre><code class="language-javascript">const person = {
+    name: 'John',
+    age: 30
+};
+
+// Object methods
+Object.keys(person);
+Object.values(person);
+Object.entries(person);
+
+// Object property descriptors
+Object.defineProperty(person, 'id', {
+    value: 1,
+    writable: false,
+    enumerable: true,
+    configurable: false
+});</code></pre>
+        </div>
+
+        <!-- 5. Asynchronous JavaScript -->
+        <div class="content-box" id="async">
+            <h2>5. Asynchronous JavaScript</h2>
+            
+            <h3>Promises</h3>
+            <pre><code class="language-javascript">// Creating a promise
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+// Using promises
+delay(2000)
+    .then(() => console.log('Delayed log'))
+    .catch(error => console.error(error));
+
+// Promise methods
+Promise.all([promise1, promise2])
+Promise.race([promise1, promise2])
+Promise.allSettled([promise1, promise2])</code></pre>
+
+            <h3>Async/Await</h3>
+            <pre><code class="language-javascript">async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Using async/await with array methods
+async function processUsers(userIds) {
+    const promises = userIds.map(id => fetchUser(id));
+    const users = await Promise.all(promises);
+    return users;
+}</code></pre>
+        </div>
+
+        <!-- 6. Error Handling -->
+        <div class="content-box" id="errors">
+            <h2>6. Error Handling</h2>
+            
+            <pre><code class="language-javascript">// Try-catch
+try {
+    throw new Error('Something went wrong');
+} catch (error) {
+    console.error(error.message);
+} finally {
+    console.log('Cleanup code');
+}
+
+// Custom errors
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+// Async error handling
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error; // Re-throwing the error
+    }
+}</code></pre>
+        </div>
+
+        <!-- 7. Modules -->
+        <div class="content-box" id="modules">
+            <h2>7. Modules</h2>
+            
+            <pre><code class="language-javascript">// Exporting
+export const add = (a, b) => a + b;
+export default class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+// Importing
+import { add } from './math.js';
+import User from './User.js';
+import * as utils from './utils.js';
+
+// Re-exporting
+export { add, subtract } from './math.js';</code></pre>
+        </div>
+
+        <!-- 8. DOM Manipulation -->
+        <div class="content-box" id="dom">
+            <h2>8. DOM Manipulation</h2>
+            
+            <pre><code class="language-javascript">// Selecting elements
+const element = document.querySelector('.class');
+const elements = document.querySelectorAll('.class');
+
+// Creating and modifying elements
+const div = document.createElement('div');
+div.textContent = 'New content';
+div.classList.add('new-class');
+element.appendChild(div);
+
+// Event handling
+element.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log('Clicked!');
+});
+
+// DOM traversal
+const parent = element.parentNode;
+const children = element.children;
+const next = element.nextElementSibling;</code></pre>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 </body>
 </html>
