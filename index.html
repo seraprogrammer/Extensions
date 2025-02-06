@@ -1,424 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete JavaScript Guide - Basic to Intermediate</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a;
-            color: #e0e0e0;
-            min-height: 100vh;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Documentation A-Z</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #1a1a2e;
+      --text-color: #e0e0e0;
+      --accent-color: #4a4ae6;
+      --code-bg: #2d2d2d;
+      --header-bg: #0a192f;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #2a2a2a;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 0;
+    }
 
-        .navigation {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 250px;
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 10px;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .navigation a {
-            color: #e0e0e0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 15px;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+    header {
+      background-color: var(--header-bg);
+      padding: 15px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .navigation a:hover {
-            background: #7c4dff;
-            color: white;
-        }
+    header h1 {
+      margin: 0 0 10px 0;
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #ffffff;
+    }
 
-        h1 {
-            font-size: 32px;
-            color: #7c4dff;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+    #quote {
+      font-size: 0.9em;
+      font-style: italic;
+      color: #a8b2d1;
+      margin: 0;
+      min-height: 2.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .content-box {
-            background: #333;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin: 25px 0;
-            border-left: 4px solid #7c4dff;
-        }
+    .topic {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
 
-        .content-box h2 {
-            font-size: 24px;
-            color: #7c4dff;
-            margin-bottom: 15px;
-        }
+    .topic-header {
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
 
-        .content-box h3 {
-            font-size: 20px;
-            color: #9e9eff;
-            margin: 20px 0 10px 0;
-        }
+    .topic-header:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
 
-        .content-box p {
-            color: #e0e0e0;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
+    .topic-header h2 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: 500;
+    }
 
-        pre[class*="language-"] {
-            margin: 15px 0;
-            border-radius: 8px;
-            padding: 20px !important;
-        }
+    .topic-content {
+      display: none;
+      padding: 15px;
+    }
 
-        code[class*="language-"] {
-            font-size: 15px;
-        }
+    pre {
+      background-color: var(--code-bg);
+      border-radius: 5px;
+      padding: 15px;
+      overflow-x: auto;
+    }
 
-        .note {
-            background: #3d3d3d;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #FFD700;
-        }
+    code {
+      font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    }
 
-        .example-output {
-            background: #404040;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            font-family: monospace;
-            color: #4CAF50;
-        }
-    </style>
+    .toggle {
+      transition: transform 0.3s ease;
+    }
+
+    .topic.active .toggle {
+      transform: rotate(45deg);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Complete JavaScript Guide</h1>
-
-        <!-- 1. Basic JavaScript Fundamentals -->
-        <div class="content-box" id="basics">
-            <h2>1. JavaScript Fundamentals</h2>
-            
-            <h3>Variables and Data Types</h3>
-            <pre><code class="language-javascript">// Variable declarations
-let name = 'John';              // String
-const age = 25;                 // Number
-var isStudent = true;           // Boolean
-let fruits = ['apple', 'banana']; // Array
-let person = {                  // Object
-    name: 'John',
-    age: 25
-};
-let empty = null;              // Null
-let undefined_var;             // Undefined
-let symbol = Symbol('id');     // Symbol
-let bigInt = 9007199254740991n; // BigInt</code></pre>
-
-            <h3>Type Conversion and Coercion</h3>
-            <pre><code class="language-javascript">// Type conversion
-String(123)          // "123"
-Number("123")        // 123
-Boolean(1)           // true
-
-// Type coercion
-"123" + 1           // "1231"
-"123" - 1           // 122
-true + 1            // 2</code></pre>
+  <header>
+    <p id="quote"></p>
+  </header>
+  <div class="container">
+    <div class="topic">
+      <div class="topic-header">
+        <h2>let, var, const</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎓 Let's Learn About JavaScript Variables!</h3>
+        
+        <div class="section">
+          <h4>🌟 var - The Old Way</h4>
+          <p>Think of 'var' like a magic box that can hold anything and can be changed anytime!</p>
+          <pre><code class="language-javascript">
+var myAge = 10;     // We put 10 in the box
+myAge = 11;         // We can change it to 11
+var myAge = 12;     // We can even make a new box with the same name!</code></pre>
         </div>
 
-        <!-- 2. ES6+ Features -->
-        <div class="content-box" id="es6">
-            <h2>2. ES6+ Modern JavaScript</h2>
-            
-            <h3>Let and Const</h3>
-            <pre><code class="language-javascript">// Block scoping
-{
-    let blockScoped = 'only available here';
-    const CONSTANT = 'cannot be reassigned';
-}
+        <div class="section">
+          <h4>🔒 const - The Never-Change Box</h4>
+          <p>const is like a special treasure box - once you put something in, it stays forever!</p>
+          <pre><code class="language-javascript">
+const myName = "Sara";    // Put "Sara" in a locked box
+// myName = "John";       // Oops! Can't change it - it's locked!
+const favColors = ["blue", "red"];  // We can put a list in the box
+favColors.push("green");   // We can change what's inside the list
+// favColors = ["yellow"]; // But we can't replace the whole list!</code></pre>
+        </div>
 
-// Template Literals
-const name = 'John';
-const greeting = `Hello ${name}!`;
+        <div class="section">
+          <h4>🎈 let - The Modern Way</h4>
+          <p>let is like a friendly box - you can change what's inside, but you can't make another box with the same name!</p>
+          <pre><code class="language-javascript">
+let myPets = 2;     // Start with 2 pets
+myPets = 3;         // Got a new pet! Now we have 3
+// let myPets = 4;  // Can't make a new box with same name!</code></pre>
+        </div>
 
-// Arrow Functions
-const add = (a, b) => a + b;
-const multiply = (a, b) => {
-    return a * b;
+        <div class="section">
+          <h4>🤔 When to Use What?</h4>
+          <ul>
+            <li>🔒 Use <strong>const</strong> when you don't want the value to change (like your name)</li>
+            <li>🎈 Use <strong>let</strong> when you might need to change the value later (like your age)</li>
+            <li>⚠️ Try not to use <strong>var</strong> - it's old and can cause confusion!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Data Types</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎨 JavaScript's Colorful World of Data Types!</h3>
+
+        <div class="section">
+          <h4>📝 Primitive Types - The Simple Ones</h4>
+          
+          <div class="subsection">
+            <h5>🔢 Number</h5>
+            <p>Any kind of number you can think of!</p>
+            <pre><code class="language-javascript">
+let age = 10;           // Whole number
+let height = 1.75;      // Decimal number
+let temperature = -5;   // Negative number</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>📜 String</h5>
+            <p>Text wrapped in quotes - like a message in a bottle!</p>
+            <pre><code class="language-javascript">
+let name = "Sara";              // Using double quotes
+let message = 'Hello there!';   // Using single quotes
+let story = `I am ${age} years old`;  // Using backticks for template strings</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>✅ Boolean</h5>
+            <p>Like a light switch - it can only be ON (true) or OFF (false)!</p>
+            <pre><code class="language-javascript">
+let isHappy = true;      // Yes!
+let isSad = false;       // No!
+let isRaining = true;    // The weather is rainy</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>❓ Undefined & Null</h5>
+            <p>When something is empty or not set:</p>
+            <pre><code class="language-javascript">
+let myBox;              // Undefined - like an empty space
+let emptyBox = null;    // Null - like a box marked "empty"</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎁 Complex Types - The Special Containers</h4>
+
+          <div class="subsection">
+            <h5>📦 Object</h5>
+            <p>Like a toy box with different compartments for different things!</p>
+            <pre><code class="language-javascript">
+let person = {
+    name: "Sara",     // A compartment for name
+    age: 10,         // A compartment for age
+    likes: "pizza"   // A compartment for favorite food
 };</code></pre>
+          </div>
 
-            <h3>Destructuring</h3>
-            <pre><code class="language-javascript">// Array destructuring
-const [first, second, ...rest] = [1, 2, 3, 4, 5];
-
-// Object destructuring
-const { name, age, country = 'USA' } = person;
-
-// Nested destructuring
-const {
-    address: { street, city }
-} = complexObject;</code></pre>
-
-            <h3>Spread and Rest Operators</h3>
-            <pre><code class="language-javascript">// Spread operator
-const numbers = [1, 2, 3];
-const newNumbers = [...numbers, 4, 5];
-
-// Rest parameters
-function sum(...numbers) {
-    return numbers.reduce((acc, curr) => acc + curr, 0);
-}
-
-// Object spread
-const baseConfig = { api: 'http://api.example.com' };
-const config = { ...baseConfig, timeout: 5000 };</code></pre>
+          <div class="subsection">
+            <h5>📋 Array</h5>
+            <p>Like a train with multiple cars - each carrying something!</p>
+            <pre><code class="language-javascript">
+let colors = ["red", "blue", "green"];     // A train of colors
+let numbers = [1, 2, 3, 4, 5];             // A train of numbers
+let mix = ["Sara", 10, true, ["a", "b"]];  // A train with different things</code></pre>
+          </div>
         </div>
 
-        <!-- 3. Functions Advanced -->
-        <div class="content-box" id="functions">
-            <h2>3. Advanced Functions</h2>
-            
-            <h3>Function Types and Patterns</h3>
-            <pre><code class="language-javascript">// Function declaration
-function greet(name) {
-    return `Hello ${name}`;
+        <div class="section">
+          <h4>🔍 How to Check Types</h4>
+          <p>Want to know what type something is? Use typeof!</p>
+          <pre><code class="language-javascript">
+typeof 42;          // "number"
+typeof "Hello";     // "string"
+typeof true;        // "boolean"
+typeof [1,2,3];     // "object" (arrays are special objects!)
+typeof null;        // "object" (this is a funny JavaScript quirk!)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Fun Facts!</h4>
+          <ul>
+            <li>🎯 Numbers can be as big as 9007199254740991 (that's REALLY big!)</li>
+            <li>🎨 Strings can hold emojis too! "Hello 👋"</li>
+            <li>🔄 You can convert between types: String(123) makes "123"</li>
+            <li>⚡ Arrays start counting from 0, not 1 (it's a computer thing!)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Control Flow</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎮 Control Flow - Making Decisions in Code!</h3>
+        
+        <div class="section">
+          <h4>🔄 if-else - The Decision Maker</h4>
+          <p>Like choosing what to wear based on the weather!</p>
+          <pre><code class="language-javascript">
+// Simple if statement
+let isRaining = true;
+if (isRaining) {
+    console.log("Take an umbrella! ☔");
 }
 
-// Function expression
-const greetExpr = function(name) {
-    return `Hello ${name}`;
-};
+// if-else statement
+let temperature = 25;
+if (temperature > 30) {
+    console.log("It's hot! 🌞 Wear shorts!");
+} else if (temperature > 20) {
+    console.log("It's nice! 😊 Wear a t-shirt!");
+} else {
+    console.log("It's cold! 🧥 Wear a jacket!");
+}</code></pre>
+        </div>
 
-// Arrow function
-const greetArrow = name => `Hello ${name}`;
+        <div class="section">
+          <h4>🎡 switch - The Choice Picker</h4>
+          <p>Like a vending machine - pick a number, get your snack!</p>
+          <pre><code class="language-javascript">
+let fruit = "apple";
+switch (fruit) {
+    case "apple":
+        console.log("You picked an apple! 🍎");
+        break;
+    case "banana":
+        console.log("You picked a banana! 🍌");
+        break;
+    case "orange":
+        console.log("You picked an orange! 🍊");
+        break;
+    default:
+        console.log("We don't have that fruit! 😕");
+}</code></pre>
+        </div>
 
-// IIFE (Immediately Invoked Function Expression)
-(function() {
-    console.log('Executed immediately');
-})();</code></pre>
-
-            <h3>Closures and Scope</h3>
-            <pre><code class="language-javascript">function counter() {
-    let count = 0;
-    return {
-        increment: () => ++count,
-        decrement: () => --count,
-        getCount: () => count
-    };
+        <div class="section">
+          <h4>🔁 Loops - The Repeater</h4>
+          
+          <div class="subsection">
+            <h5>🎯 for Loop - Count and Repeat</h5>
+            <p>Like counting jumps in a jumping rope game!</p>
+            <pre><code class="language-javascript">
+// Count from 1 to 5
+for (let count = 1; count <= 5; count++) {
+    console.log(`Jump number ${count}! 🦘`);
 }
 
-const myCounter = counter();
-myCounter.increment(); // 1
-myCounter.increment(); // 2</code></pre>
+// Loop through an array
+let animals = ["🐶", "🐱", "🐰", "🐸"];
+for (let i = 0; i < animals.length; i++) {
+    console.log(`Animal ${i + 1} is ${animals[i]}`);
+}</code></pre>
+          </div>
 
-            <h3>Higher-Order Functions</h3>
-            <pre><code class="language-javascript">// Function that returns a function
-const multiply = (factor) => {
-    return (number) => number * factor;
-};
+          <div class="subsection">
+            <h5>🌟 while Loop - Keep Going Until...</h5>
+            <p>Like playing a game until you win!</p>
+            <pre><code class="language-javascript">
+let score = 0;
+while (score < 10) {
+    console.log(`Your score: ${score} 🎮`);
+    score = score + 2;  // Get 2 points each time
+}</code></pre>
+          </div>
 
-const double = multiply(2);
-double(5); // 10
+          <div class="subsection">
+            <h5>🎪 for...of Loop - Visit Each Item</h5>
+            <p>Like giving a treat to each pet!</p>
+            <pre><code class="language-javascript">
+let pets = ["🐕 Max", "🐈 Luna", "🐠 Nemo"];
+for (let pet of pets) {
+    console.log(`Giving a treat to ${pet}!`);
+}</code></pre>
+          </div>
+        </div>
 
-// Function that takes a function as argument
-const applyOperation = (numbers, operation) => {
-    return numbers.map(operation);
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Use `if` when you need to check something specific</li>
+            <li>🎡 Use `switch` when you have many different choices</li>
+            <li>🔄 Use `for` when you know how many times to repeat</li>
+            <li>🌟 Use `while` when you don't know how many times to repeat</li>
+            <li>⚡ Don't forget to use `break` in switch statements!</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Examples</h4>
+          <pre><code class="language-javascript">
+// A simple game score checker
+let playerScore = 85;
+
+if (playerScore >= 90) {
+    console.log("🏆 Amazing! You're a SUPERSTAR!");
+} else if (playerScore >= 80) {
+    console.log("🌟 Great job! Keep it up!");
+} else if (playerScore >= 70) {
+    console.log("👍 Good work! You can do even better!");
+} else {
+    console.log("💪 Keep practicing! You'll get there!");
+}
+
+// A fun day planner
+let day = "Saturday";
+switch (day) {
+    case "Saturday":
+        console.log("🎮 Gaming day!");
+        break;
+    case "Sunday":
+        console.log("🎨 Art day!");
+        break;
+    default:
+        console.log("📚 Learning day!");
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Objects</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎁 Objects - The Magic Containers of JavaScript!</h3>
+
+        <div class="section">
+          <h4>📦 What is an Object?</h4>
+          <p>Think of an object like a magical toy box where you can store different things with labels! Each thing has a name (key) and a value.</p>
+          <pre><code class="language-javascript">
+// A simple toy box object
+let toyBox = {
+    name: "My Toy Box",      // Label: name, Thing: "My Toy Box"
+    color: "blue",           // Label: color, Thing: "blue"
+    numberOfToys: 5,         // Label: numberOfToys, Thing: 5
+    isOpen: true            // Label: isOpen, Thing: true
 };</code></pre>
         </div>
 
-        <!-- 4. Arrays and Objects Advanced -->
-        <div class="content-box" id="arrays-objects">
-            <h2>4. Advanced Arrays and Objects</h2>
-            
-            <h3>Array Methods</h3>
-            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+        <div class="section">
+          <h4>🎯 How to Use Objects</h4>
+          
+          <div class="subsection">
+            <h5>🔑 Getting Values (Two Ways!)</h5>
+            <pre><code class="language-javascript">
+// Way 1: Using dot (.)
+console.log(toyBox.name);        // "My Toy Box"
+console.log(toyBox.color);       // "blue"
 
-// map, filter, reduce
-const doubled = numbers.map(n => n * 2);
-const evens = numbers.filter(n => n % 2 === 0);
-const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+// Way 2: Using square brackets []
+console.log(toyBox["numberOfToys"]);  // 5
+console.log(toyBox["isOpen"]);       // true</code></pre>
+          </div>
 
-// find, some, every
-const found = numbers.find(n => n > 3);
-const hasEven = numbers.some(n => n % 2 === 0);
-const allPositive = numbers.every(n => n > 0);
+          <div class="subsection">
+            <h5>✏️ Changing Values</h5>
+            <pre><code class="language-javascript">
+// Let's paint our toy box red!
+toyBox.color = "red";
 
-// Array manipulation
-const removed = numbers.splice(2, 1, 6);
-const sliced = numbers.slice(1, 3);
-const combined = [...numbers, ...evens];</code></pre>
+// Add more toys
+toyBox.numberOfToys = 7;
 
-            <h3>Object Methods and Properties</h3>
-            <pre><code class="language-javascript">const person = {
-    name: 'John',
-    age: 30
+// Add a new property
+toyBox.hasStickers = true;</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🌟 Fun with Objects</h4>
+
+          <div class="subsection">
+            <h5>🐱 Pet Object Example</h5>
+            <pre><code class="language-javascript">
+let myPet = {
+    name: "Whiskers",
+    type: "Cat 🐱",
+    age: 3,
+    favoriteThings: ["sleeping 😴", "playing 🎮", "eating 🐟"],
+    makeSound: function() {
+        return "Meow! 😺";
+    }
 };
 
-// Object methods
-Object.keys(person);
-Object.values(person);
-Object.entries(person);
+// Using our pet object
+console.log(`My pet ${myPet.type} is called ${myPet.name}`);
+console.log(`${myPet.name} says: ${myPet.makeSound()}`);
+console.log(`${myPet.name}'s favorite things: ${myPet.favoriteThings.join(", ")}`);</code></pre>
+          </div>
 
-// Object property descriptors
-Object.defineProperty(person, 'id', {
-    value: 1,
-    writable: false,
-    enumerable: true,
-    configurable: false
+          <div class="subsection">
+            <h5>🎮 Game Character Example</h5>
+            <pre><code class="language-javascript">
+let gameCharacter = {
+    name: "Super Sara",
+    powers: ["flying 🦸‍♀️", "super strength 💪", "invisibility 👻"],
+    health: 100,
+    level: 1,
+    levelUp: function() {
+        this.level += 1;
+        return `${this.name} is now level ${this.level}! 🎉`;
+    }
+};
+
+// Level up our character
+console.log(gameCharacter.levelUp());  // "Super Sara is now level 2! 🎉"</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎨 Nested Objects</h4>
+          <p>Objects can contain other objects - like boxes inside boxes!</p>
+          <pre><code class="language-javascript">
+let schoolBag = {
+    owner: "Sara",
+    mainPocket: {
+        books: ["Math 📚", "Science 🔬"],
+        lunchBox: {
+            sandwich: "cheese 🧀",
+            fruit: "apple 🍎",
+            drink: "juice 🧃"
+        }
+    },
+    sidePocket: {
+        pencilCase: ["pencil ✏️", "eraser ⬜", "pen 🖊️"]
+    }
+};
+
+// Getting nested values
+console.log(schoolBag.mainPocket.lunchBox.fruit);  // "apple 🍎"
+console.log(schoolBag.sidePocket.pencilCase[0]);   // "pencil ✏️"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Use objects to group related information together</li>
+            <li>🔑 Use dot notation (.) when you know the exact property name</li>
+            <li>📦 Use square brackets [] when the property name is in a variable</li>
+            <li>🎨 You can put objects inside other objects (nested objects)</li>
+            <li>✨ Objects can have functions (called methods) too!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Arrays</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>📚 Arrays - The Magic Lists of JavaScript!</h3>
+
+        <div class="section">
+          <h4>🚂 What is an Array?</h4>
+          <p>Think of an array like a train with many cars - each car can hold something different, and we can count them from 0!</p>
+          <pre><code class="language-javascript">
+// A train of fruits
+let fruitTrain = ["🍎", "🍌", "🍊", "🍇", "🍓"];
+//  Position:      0     1     2     3     4
+
+// A train of numbers
+let numberTrain = [1, 2, 3, 4, 5];
+
+// A mixed train (can hold different types!)
+let mixedTrain = ["🎮", 42, true, ["A", "B"]];</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎯 How to Use Arrays</h4>
+          
+          <div class="subsection">
+            <h5>🎪 Getting Items</h5>
+            <pre><code class="language-javascript">
+// Getting items by their position (remember, we start counting from 0!)
+console.log(fruitTrain[0]);  // "🍎" (first fruit)
+console.log(fruitTrain[1]);  // "🍌" (second fruit)
+console.log(fruitTrain[4]);  // "🍓" (last fruit)
+
+// Getting the length (how many items?)
+console.log(fruitTrain.length);  // 5 fruits!</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎠 Adding and Removing Items</h5>
+            <pre><code class="language-javascript">
+// Adding items to the end (push)
+fruitTrain.push("🍍");        // Add pineapple to the end
+console.log(fruitTrain);      // ["🍎", "🍌", "🍊", "🍇", "🍓", "🍍"]
+
+// Removing from the end (pop)
+let lastFruit = fruitTrain.pop();  // Remove last fruit
+console.log(lastFruit);            // "🍍"
+
+// Adding to the start (unshift)
+fruitTrain.unshift("🥝");     // Add kiwi to the start
+
+// Removing from the start (shift)
+let firstFruit = fruitTrain.shift();  // Remove first fruit</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🌟 Fun with Arrays</h4>
+
+          <div class="subsection">
+            <h5>🎮 Making a Game Score Board</h5>
+            <pre><code class="language-javascript">
+let playerScores = [
+    ["🦸‍♀️ Sara", 95],
+    ["🦸‍♂️ Tom", 88],
+    ["🦹‍♀️ Luna", 92]
+];
+
+// Getting player scores
+console.log(`${playerScores[0][0]} scored ${playerScores[0][1]} points!`);
+// "🦸‍♀️ Sara scored 95 points!"</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎨 Fun Array Methods</h5>
+            <pre><code class="language-javascript">
+let colorPalette = ["red", "blue", "green", "yellow"];
+
+// Join items with a separator
+console.log(colorPalette.join(" + "));  // "red + blue + green + yellow"
+
+// Find where an item is
+console.log(colorPalette.indexOf("blue"));  // 1
+
+// Check if something exists
+console.log(colorPalette.includes("red"));  // true
+console.log(colorPalette.includes("pink")); // false</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🔄 Looping Through Arrays</h4>
+          <pre><code class="language-javascript">
+// Method 1: for...of loop (easiest!)
+let pets = ["🐶", "🐱", "🐰", "🐠"];
+for (let pet of pets) {
+    console.log(`Hello ${pet}!`);
+}
+
+// Method 2: forEach method
+pets.forEach(function(pet) {
+    console.log(`Feeding ${pet}...`);
+});
+
+// Method 3: Classic for loop
+for (let i = 0; i < pets.length; i++) {
+    console.log(`Pet #${i + 1} is ${pets[i]}`);
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>✨ Cool Array Tricks</h4>
+          
+          <div class="subsection">
+            <h5>🎭 Transforming Arrays</h5>
+            <pre><code class="language-javascript">
+// Making a new array with map
+let numbers = [1, 2, 3, 4];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled);  // [2, 4, 6, 8]
+
+// Finding items with filter
+let scores = [85, 92, 78, 95, 88];
+let highScores = scores.filter(score => score >= 90);
+console.log(highScores);  // [92, 95]</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🚂 Arrays start counting from 0, not 1</li>
+            <li>📏 Use .length to find out how many items are in the array</li>
+            <li>🎯 Use push() and pop() to add/remove from the end</li>
+            <li>🎪 Use unshift() and shift() to add/remove from the start</li>
+            <li>🌈 Arrays can hold any type of data - even other arrays!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Events</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎪 Events - Making Your Web Page Come Alive!</h3>
+
+        <div class="section">
+          <h4>🎮 What are Events?</h4>
+          <p>Events are like magic triggers that happen when someone does something on your webpage - like clicking a button, moving the mouse, or typing on the keyboard!</p>
+          
+          <div class="subsection">
+            <h5>🎯 Common Events We Can Listen For</h5>
+            <ul>
+              <li>👆 click - When someone clicks something</li>
+              <li>⌨️ keypress - When someone types on the keyboard</li>
+              <li>🖱️ mouseover - When the mouse moves over something</li>
+              <li>📜 scroll - When someone scrolls the page</li>
+              <li>📱 touchstart - When someone touches the screen (on mobile)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎨 How to Use Events</h4>
+          
+          <div class="subsection">
+            <h5>🎵 Method 1: addEventListener</h5>
+            <pre><code class="language-javascript">
+// First, get the element you want to watch
+let magicButton = document.getElementById("magicButton");
+
+// Then, tell it what to do when clicked
+magicButton.addEventListener("click", function() {
+    alert("✨ Magic happening! ✨");
+});</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎪 Method 2: HTML Attribute</h5>
+            <pre><code class="language-html">
+<!-- Adding the event directly in HTML -->
+<button onclick="alert('🌟 Sparkles!')">Click for Magic!</button></code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎯 Fun Event Examples</h4>
+
+          <div class="subsection">
+            <h5>🎮 Making a Simple Game</h5>
+            <pre><code class="language-javascript">
+let score = 0;
+let gameButton = document.getElementById("gameButton");
+
+gameButton.addEventListener("click", function() {
+    score += 1;
+    gameButton.textContent = `Score: ${score} 🎯`;
+    
+    if (score >= 10) {
+        alert("🏆 You won the game!");
+    }
+});</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎨 Color Changing Box</h5>
+            <pre><code class="language-javascript">
+let magicBox = document.getElementById("magicBox");
+
+// Change color when mouse moves over
+magicBox.addEventListener("mouseover", function() {
+    magicBox.style.backgroundColor = "pink";
+    magicBox.textContent = "🌸";
+});
+
+// Change back when mouse leaves
+magicBox.addEventListener("mouseout", function() {
+    magicBox.style.backgroundColor = "blue";
+    magicBox.textContent = "❄️";
+});</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎹 Keyboard Events</h5>
+            <pre><code class="language-javascript">
+// Listen for keyboard presses
+document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowRight") {
+        console.log("Moving right! ➡️");
+    } else if (event.key === "ArrowLeft") {
+        console.log("Moving left! ⬅️");
+    } else if (event.key === " ") {
+        console.log("Jump! 🦘");
+    }
+});</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎭 Event Object - The Magic Information Package</h4>
+          <pre><code class="language-javascript">
+// The event object contains lots of useful information!
+document.addEventListener("click", function(event) {
+    console.log(`You clicked at position: 
+        X: ${event.clientX} 
+        Y: ${event.clientY} 🎯`);
+    
+    // What did we click?
+    console.log(`Clicked on: ${event.target.tagName} 🎪`);
 });</code></pre>
         </div>
 
-        <!-- 5. Asynchronous JavaScript -->
-        <div class="content-box" id="async">
-            <h2>5. Asynchronous JavaScript</h2>
-            
-            <h3>Promises</h3>
-            <pre><code class="language-javascript">// Creating a promise
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-// Using promises
-delay(2000)
-    .then(() => console.log('Delayed log'))
-    .catch(error => console.error(error));
-
-// Promise methods
-Promise.all([promise1, promise2])
-Promise.race([promise1, promise2])
-Promise.allSettled([promise1, promise2])</code></pre>
-
-            <h3>Async/Await</h3>
-            <pre><code class="language-javascript">async function fetchData() {
-    try {
-        const response = await fetch('https://api.example.com/data');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error:', error);
-    }
+        <div class="section">
+          <h4>🎪 Removing Event Listeners</h4>
+          <pre><code class="language-javascript">
+// First, make a named function
+function magicSpell() {
+    alert("✨ Abracadabra! ✨");
 }
 
-// Using async/await with array methods
-async function processUsers(userIds) {
-    const promises = userIds.map(id => fetchUser(id));
-    const users = await Promise.all(promises);
-    return users;
-}</code></pre>
+// Add the listener
+let magicWand = document.getElementById("magicWand");
+magicWand.addEventListener("click", magicSpell);
+
+// Later, if you want to stop the magic...
+magicWand.removeEventListener("click", magicSpell);</code></pre>
         </div>
 
-        <!-- 6. Error Handling -->
-        <div class="content-box" id="errors">
-            <h2>6. Error Handling</h2>
-            
-            <pre><code class="language-javascript">// Try-catch
-try {
-    throw new Error('Something went wrong');
-} catch (error) {
-    console.error(error.message);
-} finally {
-    console.log('Cleanup code');
-}
-
-// Custom errors
-class ValidationError extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'ValidationError';
-    }
-}
-
-// Async error handling
-async function fetchData() {
-    try {
-        const response = await fetch('https://api.example.com/data');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error:', error);
-        throw error; // Re-throwing the error
-    }
-}</code></pre>
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Always check if your element exists before adding events</li>
+            <li>🎮 Use descriptive names for your event handler functions</li>
+            <li>🎨 You can add multiple event listeners to the same element</li>
+            <li>⚡ Remember to remove event listeners when you don't need them anymore</li>
+            <li>🎪 The event object (e or event) is your friend - it has lots of useful information!</li>
+          </ul>
         </div>
-
-        <!-- 7. Modules -->
-        <div class="content-box" id="modules">
-            <h2>7. Modules</h2>
-            
-            <pre><code class="language-javascript">// Exporting
-export const add = (a, b) => a + b;
-export default class User {
-    constructor(name) {
-        this.name = name;
-    }
-}
-
-// Importing
-import { add } from './math.js';
-import User from './User.js';
-import * as utils from './utils.js';
-
-// Re-exporting
-export { add, subtract } from './math.js';</code></pre>
-        </div>
-
-        <!-- 8. DOM Manipulation -->
-        <div class="content-box" id="dom">
-            <h2>8. DOM Manipulation</h2>
-            
-            <pre><code class="language-javascript">// Selecting elements
-const element = document.querySelector('.class');
-const elements = document.querySelectorAll('.class');
-
-// Creating and modifying elements
-const div = document.createElement('div');
-div.textContent = 'New content';
-div.classList.add('new-class');
-element.appendChild(div);
-
-// Event handling
-element.addEventListener('click', (event) => {
-    event.preventDefault();
-    console.log('Clicked!');
-});
-
-// DOM traversal
-const parent = element.parentNode;
-const children = element.children;
-const next = element.nextElementSibling;</code></pre>
-        </div>
+      </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Promises</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🤝 Promises - JavaScript's Way of Making Promises!</h3>
+
+        <div class="section">
+          <h4>🎭 What is a Promise?</h4>
+          <p>A Promise is like ordering a pizza! When you order, the restaurant PROMISES to either:</p>
+          <ul>
+            <li>✅ Bring you your pizza (Promise fulfilled - resolve)</li>
+            <li>❌ Tell you they can't make it (Promise rejected - reject)</li>
+          </ul>
+          <pre><code class="language-javascript">
+// Making a simple promise (like ordering a pizza)
+let pizzaOrder = new Promise((resolve, reject) => {
+    let pizzaIsReady = true;  // Is the pizza ready?
+    
+    if (pizzaIsReady) {
+        resolve("🍕 Here's your delicious pizza!");
+    } else {
+        reject("😢 Sorry, we're out of cheese!");
+    }
+});</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎯 Using Promises</h4>
+          
+          <div class="subsection">
+            <h5>🎪 then, catch, and finally</h5>
+            <pre><code class="language-javascript">
+pizzaOrder
+    .then((message) => {
+        console.log(message);  // "🍕 Here's your delicious pizza!"
+    })
+    .catch((error) => {
+        console.log(error);    // "😢 Sorry, we're out of cheese!"
+    })
+    .finally(() => {
+        console.log("👋 Thank you for visiting our pizza shop!");
+    });</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Promise Examples</h4>
+
+          <div class="subsection">
+            <h5>🎲 Making a Lucky Draw Game</h5>
+            <pre><code class="language-javascript">
+function playLuckyDraw() {
+    return new Promise((resolve, reject) => {
+        // Random number between 1 and 10
+        let number = Math.floor(Math.random() * 10) + 1;
+        
+        setTimeout(() => {
+            if (number > 5) {
+                resolve(`🎉 You won! Your lucky number is ${number}`);
+            } else {
+                reject(`😅 Try again! ${number} is not lucky enough`);
+            }
+        }, 2000);  // Wait 2 seconds for suspense!
+    });
+}
+
+// Playing the game
+console.log("🎲 Rolling the dice...");
+playLuckyDraw()
+    .then(result => console.log(result))
+    .catch(error => console.log(error));</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🌟 Loading a Player's Profile</h5>
+            <pre><code class="language-javascript">
+function loadPlayerProfile(playerId) {
+    return new Promise((resolve, reject) => {
+        // Pretend we're loading data...
+        setTimeout(() => {
+            let player = {
+                name: "Super Sara",
+                level: 42,
+                powers: ["🦸‍♀️ flying", "💪 super strength"]
+            };
+            
+            if (playerId === "123") {
+                resolve(player);
+            } else {
+                reject("🔍 Player not found!");
+            }
+        }, 1000);
+    });
+}
+
+// Try to load the profile
+console.log("🔄 Loading profile...");
+loadPlayerProfile("123")
+    .then(player => {
+        console.log(`✨ Welcome back, ${player.name}!`);
+        console.log(`Level: ${player.level}`);
+        console.log(`Powers: ${player.powers.join(", ")}`);
+    })
+    .catch(error => console.log(error));</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🌈 Async/Await - A Nicer Way to Use Promises</h4>
+          <p>async/await makes promises easier to write - like writing a story!</p>
+          <pre><code class="language-javascript">
+// Using async/await with our lucky draw game
+async function playGame() {
+    try {
+        console.log("🎲 Rolling the dice...");
+        let result = await playLuckyDraw();  // Wait for the result
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Using async/await with player profile
+async function startGame() {
+    try {
+        console.log("🔄 Loading your profile...");
+        let player = await loadPlayerProfile("123");
+        console.log(`🎮 Game starting with ${player.name}!`);
+    } catch (error) {
+        console.log("❌ Couldn't load profile:", error);
+    }
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎭 Promise States</h4>
+          <p>A Promise can be in one of three states:</p>
+          <ul>
+            <li>⏳ Pending - Still waiting (like when the pizza is cooking)</li>
+            <li>✅ Fulfilled - Success! (pizza delivered)</li>
+            <li>❌ Rejected - Something went wrong (no more cheese)</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h4>💫 Promise Magic Tricks</h4>
+          <pre><code class="language-javascript">
+// Wait for multiple promises (like ordering many pizzas!)
+Promise.all([
+    playLuckyDraw(),
+    loadPlayerProfile("123")
+])
+    .then(([luckResult, player]) => {
+        console.log("🎉 Everything is ready!");
+    })
+    .catch(error => {
+        console.log("😅 Something went wrong!");
+    });
+
+// Race promises (first one wins!)
+Promise.race([
+    playLuckyDraw(),
+    loadPlayerProfile("123")
+])
+    .then(winner => {
+        console.log("🏃‍♂️ This one finished first:", winner);
+    });</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Always use .catch() to handle errors</li>
+            <li>🌟 async/await makes promises easier to read</li>
+            <li>⚡ Promises are great for loading data or waiting for something</li>
+            <li>🎮 Use Promise.all() when you need multiple things to finish</li>
+            <li>🏃‍♂️ Use Promise.race() when you want the fastest result</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>Asynchronous JavaScript</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>⚡ Asynchronous JavaScript - Doing Many Things at Once!</h3>
+
+        <div class="section">
+          <h4>🎭 What is Asynchronous JavaScript?</h4>
+          <p>Imagine you're at a restaurant:</p>
+          <ul>
+            <li>🍽️ You order food (start a task)</li>
+            <li>🎮 While waiting, you can play on your phone (do other things)</li>
+            <li>🔔 When food is ready, the waiter calls you (task complete!)</li>
+          </ul>
+          <p>That's exactly how asynchronous JavaScript works - it can do many things without waiting!</p>
+        </div>
+
+        <div class="section">
+          <h4>🎯 Ways to Write Asynchronous Code</h4>
+          
+          <div class="subsection">
+            <h5>1️⃣ Callbacks - The Old Way</h5>
+            <pre><code class="language-javascript">
+// Using callbacks (old style)
+console.log("👨‍🍳 Starting to cook pasta...");
+setTimeout(function() {
+    console.log("🍝 Pasta is ready!");
+    setTimeout(function() {
+        console.log("🧀 Adding cheese!");
+        setTimeout(function() {
+            console.log("🍽️ Dinner is served!");
+        }, 1000);
+    }, 1000);
+}, 2000);</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>2️⃣ Promises - The Better Way</h5>
+            <pre><code class="language-javascript">
+// Same thing with promises
+function cookPasta() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("🍝 Pasta is ready!");
+        }, 2000);
+    });
+}
+
+function addCheese() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("🧀 Added cheese!");
+        }, 1000);
+    });
+}
+
+console.log("👨‍🍳 Starting to cook pasta...");
+cookPasta()
+    .then(message => {
+        console.log(message);
+        return addCheese();
+    })
+    .then(message => {
+        console.log(message);
+        console.log("🍽️ Dinner is served!");
+    });</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>3️⃣ Async/Await - The Modern Way</h5>
+            <pre><code class="language-javascript">
+// Same thing with async/await (super clean!)
+async function makeDinner() {
+    console.log("👨‍🍳 Starting to cook pasta...");
+    const pasta = await cookPasta();
+    console.log(pasta);
+    const cheese = await addCheese();
+    console.log(cheese);
+    console.log("🍽️ Dinner is served!");
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Examples</h4>
+
+          <div class="subsection">
+            <h5>🎲 Loading a Game</h5>
+            <pre><code class="language-javascript">
+async function startGame() {
+    console.log("🎮 Starting game...");
+    
+    try {
+        // Load different parts of the game
+        console.log("📦 Loading resources...");
+        await loadGameAssets();
+        
+        console.log("👤 Loading player...");
+        await loadPlayerData();
+        
+        console.log("🌍 Loading world...");
+        await loadGameWorld();
+        
+        console.log("🎉 Game ready! Let's play!");
+    } catch (error) {
+        console.log("😢 Oops! Something went wrong:", error);
+    }
+}
+
+// Start the game
+startGame();</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎨 Drawing App</h5>
+            <pre><code class="language-javascript">
+async function createMasterpiece() {
+    try {
+        // Get colors from our magic color picker
+        const colors = await fetchColors();
+        console.log("🎨 Got your colors:", colors);
+
+        // Load the canvas
+        const canvas = await setupCanvas();
+        console.log("📝 Canvas is ready!");
+
+        // Start drawing
+        await startDrawing(canvas, colors);
+        console.log("🖼️ Your artwork is complete!");
+    } catch (error) {
+        console.log("🎨 Oops! Art problem:", error);
+    }
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>⚡ Real-World Examples</h4>
+          
+          <div class="subsection">
+            <h5>🌍 Fetching Data from the Internet</h5>
+            <pre><code class="language-javascript">
+// Getting weather information
+async function checkWeather() {
+    try {
+        console.log("🔍 Checking weather...");
+        const response = await fetch('https://weather-api.example/data');
+        const data = await response.json();
+        
+        console.log(`🌤️ Today's weather: ${data.condition}`);
+        console.log(`🌡️ Temperature: ${data.temperature}°C`);
+    } catch (error) {
+        console.log("🌧️ Couldn't get weather:", error);
+    }
+}</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>📸 Loading Images</h5>
+            <pre><code class="language-javascript">
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject("Image couldn't load 😢");
+        img.src = url;
+    });
+}
+
+async function loadPhotoAlbum() {
+    try {
+        console.log("📸 Loading your photos...");
+        const photo1 = await loadImage('cat.jpg');
+        console.log("😺 Got cat photo!");
+        const photo2 = await loadImage('dog.jpg');
+        console.log("🐶 Got dog photo!");
+        console.log("✨ All photos loaded!");
+    } catch (error) {
+        console.log("📸 Photo problem:", error);
+    }
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>⚡ Use async/await for cleaner, easier-to-read code</li>
+            <li>🎯 Always use try/catch with async code to handle errors</li>
+            <li>🔄 await only works inside async functions</li>
+            <li>🎮 Use Promise.all() when you want to do many things at once</li>
+            <li>⏰ Remember that async code doesn't block other code from running</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const topics = document.querySelectorAll('.topic');
+
+        topics.forEach(topic => {
+          const header = topic.querySelector('.topic-header');
+          const content = topic.querySelector('.topic-content');
+
+          header.addEventListener('click', () => {
+            topic.classList.toggle('active');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+          });
+        });
+
+        // Random quote generator
+        const quotes = [
+          "First, solve the problem. Then, write the code. - John Johnson",
+          "Code is like humor. When you have to explain it, it's bad. - Cory House",
+          "The best way to predict the future is to implement it. - David Heinemeier Hansson",
+          "Make it work, make it right, make it fast. - Kent Beck",
+          "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler",
+          "The most disastrous thing that you can ever learn is your first programming language. - Alan Kay",
+          "The only way to learn a new programming language is by writing programs in it. - Dennis Ritchie",
+          "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday's code. - Dan Salomon",
+          "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away. - Antoine de Saint-Exupery",
+          "Code never lies, comments sometimes do. - Ron Jeffries"
+        ];
+
+        const quoteElement = document.getElementById('quote');
+
+        function setRandomQuote() {
+          const randomIndex = Math.floor(Math.random() * quotes.length);
+          quoteElement.textContent = quotes[randomIndex];
+        }
+
+        setRandomQuote(); // Set initial quote
+        setInterval(setRandomQuote, 20000); // Change quote every 10 seconds
+      });
+    </script>
 </body>
+
 </html>
