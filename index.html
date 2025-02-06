@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Switcher</title>
+    <title>JavaScript Fundamentals Guide</title>
     <style>
-        /* Reset styles */
+        /* Global reset and basic styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,83 +13,112 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             color: #333;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px;
             flex-direction: column;
         }
 
+        /* Container styles */
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             background: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
         }
 
+        /* Tabs styling */
         .tabs {
             display: flex;
             justify-content: space-evenly;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .tab {
-            padding: 10px 30px;
-            font-size: 18px;
+            padding: 12px 40px;
+            font-size: 20px;
+            font-weight: bold;
             cursor: pointer;
-            background-color: #eee;
-            border-radius: 25px;
-            transition: background-color 0.3s ease;
+            background-color: #f2f2f2;
+            border-radius: 30px;
+            transition: all 0.3s ease;
             border: 2px solid transparent;
+            color: #333;
+            text-transform: uppercase;
         }
 
         .tab:hover {
-            background-color: #e1e1e1;
+            background-color: #ff7b7b;
+            color: white;
         }
 
         .active {
-            background-color: #007bff;
-            color: #fff;
-            border: 2px solid #007bff;
+            background-color: #ff7b7b;
+            color: white;
+            border: 2px solid #ff7b7b;
         }
 
+        /* Content styling */
         .content {
-            display: none;
+            display: block;
             font-size: 18px;
             line-height: 1.6;
         }
 
-        #english {
-            display: block;
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
         }
 
         p {
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         /* Styling for code-like sections */
         pre {
             background-color: #f4f4f4;
-            padding: 10px;
+            padding: 15px;
             border-radius: 5px;
             border: 1px solid #ddd;
             font-family: 'Courier New', Courier, monospace;
             color: #555;
+            overflow-x: auto;
         }
 
         /* Styling for links in content */
         a {
-            color: #007bff;
+            color: #ff7b7b;
             text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Modern and interactive content box */
+        .content-box {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .content-box h2 {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            color: #666;
         }
     </style>
 </head>
@@ -97,61 +126,126 @@
 
     <div class="container">
         <div class="tabs">
-            <div id="englishTab" class="tab active" onclick="switchTab('english')">English</div>
-            <div id="banglaTab" class="tab" onclick="switchTab('bangla')">Bangla</div>
+            <div id="englishTab" class="tab active">English</div>
         </div>
 
         <div id="english" class="content">
-            <h1>Welcome to the English Content</h1>
-            <p>This is the content written in English. You can add more content here to explain features, instructions, or anything you'd like to share with your users.</p>
+            <h1>JavaScript Fundamentals Guide</h1>
 
-            <h2>Example Code Snippet</h2>
-            <pre>
+            <div class="content-box">
+                <h2>Introduction</h2>
+                <p>Welcome to the # JavaScript Fundamentals Guide! This guide covers all the key topics of JavaScript that even a kid can learn and understand. Let's begin our journey to becoming a JavaScript pro!</p>
+            </div>
+
+            <div class="content-box">
+                <h2>1. What is JavaScript?</h2>
+                <p>JavaScript is a programming language used to make websites interactive. It helps you add things like buttons that do stuff when you click them, moving images, and even games!</p>
+            </div>
+
+            <div class="content-box">
+                <h2>2. Variables and Data Types</h2>
+                <p>In JavaScript, we use variables to store information. Imagine a variable as a box where you keep things like numbers, words, and even more complicated stuff.</p>
+                <pre>
+let age = 10; // This is a number
+let name = 'Alice'; // This is a string (word)
+let isHappy = true; // This is a boolean (true or false)
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>3. Functions</h2>
+                <p>Functions are like machines that do a job for you. You give them some input, and they give you an output. Think of it like a vending machine — you put in money (input) and get candy (output)!</p>
+                <pre>
 function greet() {
-    console.log("Hello, welcome to our platform!");
+    console.log('Hello, welcome to the world of JavaScript!');
 }
-greet();
-            </pre>
+greet(); // This calls the function
+                </pre>
+            </div>
 
-            <p>For more information, visit our <a href="#">documentation</a>.</p>
-        </div>
-
-        <div id="bangla" class="content">
-            <h1>বাংলা কনটেন্টে স্বাগতম</h1>
-            <p>এটি বাংলায় কনটেন্ট। আপনি এখানে আরও কনটেন্ট যোগ করতে পারেন যা আপনার ব্যবহারকারীদের জন্য সাহায্যকারী বা তথ্যপূর্ণ হবে।</p>
-
-            <h2>কোডের উদাহরণ</h2>
-            <pre>
-function greet() {
-    console.log("হ্যালো, আমাদের প্ল্যাটফর্মে আপনাকে স্বাগতম!");
+            <div class="content-box">
+                <h2>4. Loops</h2>
+                <p>Loops let you repeat actions without writing them over and over again. It's like saying, "Do this 5 times!"</p>
+                <pre>
+for (let i = 0; i < 5; i++) {
+    console.log('This will print 5 times!');
 }
-greet();
-            </pre>
+                </pre>
+            </div>
 
-            <p>আরও তথ্যের জন্য, আমাদের <a href="#">ডকুমেন্টেশন</a> দেখুন।</p>
+            <div class="content-box">
+                <h2>5. Conditionals (if, else)</h2>
+                <p>Conditionals are used to make decisions. If something is true, you can do one thing; if it's false, you can do something else.</p>
+                <pre>
+let age = 10;
+if (age >= 18) {
+    console.log('You are an adult!');
+} else {
+    console.log('You are a kid!');
+}
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>6. Arrays</h2>
+                <p>Arrays are like a list where you can store many items, such as numbers, words, or even other lists. Think of it like a box where you store your favorite things.</p>
+                <pre>
+let fruits = ['Apple', 'Banana', 'Orange'];
+console.log(fruits[0]); // This will print 'Apple'
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>7. Objects</h2>
+                <p>Objects are like a collection of things. Each thing inside an object has a name and a value. For example, a person can have a name, age, and job.</p>
+                <pre>
+let person = {
+    name: 'Alice',
+    age: 10,
+    job: 'Student'
+};
+console.log(person.name); // This will print 'Alice'
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>8. Events</h2>
+                <p>Events let you interact with the user. For example, when you click a button, JavaScript can do something, like changing text or showing a message.</p>
+                <pre>
+let button = document.querySelector('button');
+button.addEventListener('click', function() {
+    alert('Button clicked!');
+});
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>9. Loops (while and do-while)</h2>
+                <p>Besides "for" loops, there are other types of loops, like "while" and "do-while" loops. These can be used when you don't know how many times you'll need to repeat an action.</p>
+                <pre>
+let count = 0;
+while (count < 5) {
+    console.log('This will print until count is 5');
+    count++;
+}
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>10. Basic Debugging</h2>
+                <p>When something isn't working, JavaScript has tools to help you find out what's wrong. One such tool is <code>console.log()</code>, which prints messages to the console to help you see what's going on.</p>
+                <pre>
+let x = 10;
+console.log(x); // This will print '10'
+                </pre>
+            </div>
+
+            <div class="content-box">
+                <h2>11. Conclusion</h2>
+                <p>These are the basics of JavaScript! With practice, you'll be able to build your own interactive websites and even games. Keep experimenting and learning!</p>
+            </div>
         </div>
     </div>
-
-    <script>
-        function switchTab(language) {
-            const englishTab = document.getElementById('englishTab');
-            const banglaTab = document.getElementById('banglaTab');
-            const englishContent = document.getElementById('english');
-            const banglaContent = document.getElementById('bangla');
-
-            if (language === 'english') {
-                englishTab.classList.add('active');
-                banglaTab.classList.remove('active');
-                englishContent.style.display = 'block';
-                banglaContent.style.display = 'none';
-            } else {
-                englishTab.classList.remove('active');
-                banglaTab.classList.add('active');
-                englishContent.style.display = 'none';
-                banglaContent.style.display = 'block';
-            }
-        }
-    </script>
 
 </body>
 </html>
