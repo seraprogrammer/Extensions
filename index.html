@@ -5,45 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Switcher</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
         .tabs {
             display: flex;
-            cursor: pointer;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
         }
+
         .tab {
-            padding: 10px;
-            margin-right: 20px;
-            background-color: #f1f1f1;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #eee;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent;
         }
+
+        .tab:hover {
+            background-color: #e1e1e1;
+        }
+
         .active {
-            background-color: #007BFF;
-            color: white;
+            background-color: #007bff;
+            color: #fff;
+            border: 2px solid #007bff;
         }
+
         .content {
-            margin-top: 20px;
+            display: none;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        #english {
+            display: block;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        /* Styling for code-like sections */
+        pre {
+            background-color: #f4f4f4;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', Courier, monospace;
+            color: #555;
+        }
+
+        /* Styling for links in content */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="tabs">
-        <div id="englishTab" class="tab active" onclick="switchTab('english')">English</div>
-        <div id="banglaTab" class="tab" onclick="switchTab('bangla')">Bangla</div>
-    </div>
+    <div class="container">
+        <div class="tabs">
+            <div id="englishTab" class="tab active" onclick="switchTab('english')">English</div>
+            <div id="banglaTab" class="tab" onclick="switchTab('bangla')">Bangla</div>
+        </div>
 
-    <div id="english" class="content">
-        <p>This is the content in English.</p>
-    </div>
+        <div id="english" class="content">
+            <h1>Welcome to the English Content</h1>
+            <p>This is the content written in English. You can add more content here to explain features, instructions, or anything you'd like to share with your users.</p>
 
-    <div id="bangla" class="content" style="display: none;">
-        <p>এটি বাংলায় কনটেন্ট।</p>
+            <h2>Example Code Snippet</h2>
+            <pre>
+function greet() {
+    console.log("Hello, welcome to our platform!");
+}
+greet();
+            </pre>
+
+            <p>For more information, visit our <a href="#">documentation</a>.</p>
+        </div>
+
+        <div id="bangla" class="content">
+            <h1>বাংলা কনটেন্টে স্বাগতম</h1>
+            <p>এটি বাংলায় কনটেন্ট। আপনি এখানে আরও কনটেন্ট যোগ করতে পারেন যা আপনার ব্যবহারকারীদের জন্য সাহায্যকারী বা তথ্যপূর্ণ হবে।</p>
+
+            <h2>কোডের উদাহরণ</h2>
+            <pre>
+function greet() {
+    console.log("হ্যালো, আমাদের প্ল্যাটফর্মে আপনাকে স্বাগতম!");
+}
+greet();
+            </pre>
+
+            <p>আরও তথ্যের জন্য, আমাদের <a href="#">ডকুমেন্টেশন</a> দেখুন।</p>
+        </div>
     </div>
 
     <script>
