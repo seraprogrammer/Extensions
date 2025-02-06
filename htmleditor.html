@@ -78,10 +78,9 @@
                 });
             }
 
-            const htmlEditor = createEditor('htmlEditor', 'html', '<div class="plate">ABC-1234</div>');
-            const cssEditor = createEditor('cssEditor', 'css', '.plate { font-size: 24px; font-weight: bold; background: yellow; padding: 10px; text-align: center; border: 2px solid black; }');
-            const jsEditor = createEditor('jsEditor', 'javascript', `document.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('.plate').innerText = 'XYZ-5678';
+            const htmlEditor = createEditor('htmlEditor', 'html', '<h1>ABC-1234</h1>');
+            const cssEditor = createEditor('cssEditor', 'css', 'h1{ color : red}');
+            const jsEditor = createEditor('jsEditor', 'javascript', ' ';
             });`);
 
             function formatCode(editor, language) {
