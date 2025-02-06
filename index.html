@@ -109,6 +109,22 @@
     .topic.active .toggle {
       transform: rotate(45deg);
     }
+
+    .concept-icon {
+      font-size: 2em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .concept-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .concept-title h4 {
+      margin: 0;
+    }
   </style>
 </head>
 
@@ -119,12 +135,12 @@
   <div class="container">
     <div class="topic">
       <div class="topic-header">
-        <h2>let, var, const</h2>
+        <h2>🤔 let, var, const </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
         <h3>🎓 Let's Learn About JavaScript Variables!</h3>
-        
+
         <div class="section">
           <h4>🌟 var - The Old Way</h4>
           <p>Think of 'var' like a magic box that can hold anything and can be changed anytime!</p>
@@ -167,7 +183,7 @@ myPets = 3;         // Got a new pet! Now we have 3
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Data Types</h2>
+        <h2>📊 Data Types </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -175,7 +191,7 @@ myPets = 3;         // Got a new pet! Now we have 3
 
         <div class="section">
           <h4>📝 Primitive Types - The Simple Ones</h4>
-          
+
           <div class="subsection">
             <h5>🔢 Number</h5>
             <p>Any kind of number you can think of!</p>
@@ -230,9 +246,17 @@ let person = {
             <h5>📋 Array</h5>
             <p>Like a train with multiple cars - each carrying something!</p>
             <pre><code class="language-javascript">
-let colors = ["red", "blue", "green"];     // A train of colors
-let numbers = [1, 2, 3, 4, 5];             // A train of numbers
-let mix = ["Sara", 10, true, ["a", "b"]];  // A train with different things</code></pre>
+let colors = ["red", "blue", "green", "yellow"];
+
+// Join items with a separator
+console.log(colorPalette.join(" + "));  // "red + blue + green + yellow"
+
+// Find where an item is
+console.log(colorPalette.indexOf("blue"));  // 1
+
+// Check if something exists
+console.log(colorPalette.includes("red"));  // true
+console.log(colorPalette.includes("pink")); // false</code></pre>
           </div>
         </div>
 
@@ -261,12 +285,12 @@ typeof null;        // "object" (this is a funny JavaScript quirk!)</code></pre>
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Control Flow</h2>
+        <h2>🎯 Control Flow </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
         <h3>🎮 Control Flow - Making Decisions in Code!</h3>
-        
+
         <div class="section">
           <h4>🔄 if-else - The Decision Maker</h4>
           <p>Like choosing what to wear based on the weather!</p>
@@ -310,7 +334,7 @@ switch (fruit) {
 
         <div class="section">
           <h4>🔁 Loops - The Repeater</h4>
-          
+
           <div class="subsection">
             <h5>🎯 for Loop - Count and Repeat</h5>
             <p>Like counting jumps in a jumping rope game!</p>
@@ -323,7 +347,7 @@ for (let count = 1; count <= 5; count++) {
 // Loop through an array
 let animals = ["🐶", "🐱", "🐰", "🐸"];
 for (let i = 0; i < animals.length; i++) {
-    console.log(`Animal ${i + 1} is ${animals[i]}`);
+    console.log(`Animal #${i + 1} is ${animals[i]}`);
 }</code></pre>
           </div>
 
@@ -394,7 +418,7 @@ switch (day) {
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Objects</h2>
+        <h2>🎁 Objects </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -415,7 +439,7 @@ let toyBox = {
 
         <div class="section">
           <h4>🎯 How to Use Objects</h4>
-          
+
           <div class="subsection">
             <h5>🔑 Getting Values (Two Ways!)</h5>
             <pre><code class="language-javascript">
@@ -522,7 +546,7 @@ console.log(schoolBag.sidePocket.pencilCase[0]);   // "pencil ✏️"</code></pr
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Arrays</h2>
+        <h2>📚 Arrays </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -545,7 +569,7 @@ let mixedTrain = ["🎮", 42, true, ["A", "B"]];</code></pre>
 
         <div class="section">
           <h4>🎯 How to Use Arrays</h4>
-          
+
           <div class="subsection">
             <h5>🎪 Getting Items</h5>
             <pre><code class="language-javascript">
@@ -633,7 +657,7 @@ for (let i = 0; i < pets.length; i++) {
 
         <div class="section">
           <h4>✨ Cool Array Tricks</h4>
-          
+
           <div class="subsection">
             <h5>🎭 Transforming Arrays</h5>
             <pre><code class="language-javascript">
@@ -664,7 +688,7 @@ console.log(highScores);  // [92, 95]</code></pre>
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Events</h2>
+        <h2>🎉 Events </h2>  
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -673,7 +697,7 @@ console.log(highScores);  // [92, 95]</code></pre>
         <div class="section">
           <h4>🎮 What are Events?</h4>
           <p>Events are like magic triggers that happen when someone does something on your webpage - like clicking a button, moving the mouse, or typing on the keyboard!</p>
-          
+
           <div class="subsection">
             <h5>🎯 Common Events We Can Listen For</h5>
             <ul>
@@ -688,7 +712,7 @@ console.log(highScores);  // [92, 95]</code></pre>
 
         <div class="section">
           <h4>🎨 How to Use Events</h4>
-          
+
           <div class="subsection">
             <h5>🎵 Method 1: addEventListener</h5>
             <pre><code class="language-javascript">
@@ -807,7 +831,7 @@ magicWand.removeEventListener("click", magicSpell);</code></pre>
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Promises</h2>
+        <h2>🤝 Promises</h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -835,7 +859,7 @@ let pizzaOrder = new Promise((resolve, reject) => {
 
         <div class="section">
           <h4>🎯 Using Promises</h4>
-          
+
           <div class="subsection">
             <h5>🎪 then, catch, and finally</h5>
             <pre><code class="language-javascript">
@@ -991,7 +1015,7 @@ Promise.race([
 
     <div class="topic">
       <div class="topic-header">
-        <h2>Asynchronous JavaScript</h2>
+        <h2>⏱ Asynchronous JavaScript</h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -1010,21 +1034,22 @@ Promise.race([
 
         <div class="section">
           <h4>🎯 Ways to Write Asynchronous Code</h4>
-          
+
           <div class="subsection">
             <h5>1️⃣ Callbacks - The Old Way</h5>
             <pre><code class="language-javascript">
-// Using callbacks (old style)
-console.log("👨‍🍳 Starting to cook pasta...");
-setTimeout(function() {
-    console.log("🍝 Pasta is ready!");
-    setTimeout(function() {
-        console.log("🧀 Adding cheese!");
-        setTimeout(function() {
-            console.log("🍽️ Dinner is served!");
-        }, 1000);
-    }, 1000);
-}, 2000);</code></pre>
+// This works! The function floats up like a balloon! 🎈
+sayHi();  // Output: "Hello friends! 👋"
+
+function sayHi() {
+    console.log("Hello friends! 👋");
+}
+
+// But this doesn't float! It stays put 📍
+sayBye();  // ❌ Error!
+const sayBye = () => {
+    console.log("Goodbye! 👋");
+};</code></pre>
           </div>
 
           <div class="subsection">
@@ -1129,7 +1154,7 @@ async function createMasterpiece() {
 
         <div class="section">
           <h4>⚡ Real-World Examples</h4>
-          
+
           <div class="subsection">
             <h5>🌍 Fetching Data from the Internet</h5>
             <pre><code class="language-javascript">
@@ -1188,6 +1213,1846 @@ async function loadPhotoAlbum() {
       </div>
     </div>
 
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎈 Hoisting</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>Imagine you have a magic balloon that makes things float to the top! In JavaScript, some things float up before your code runs - that's hoisting! 🎈</p>
+
+        <div class="section">
+          <h4>🎪 Function Hoisting</h4>
+          <pre><code class="language-javascript">
+// This works! The function floats up like a balloon! 🎈
+sayHi();  // Output: "Hello friends! 👋"
+
+function sayHi() {
+    console.log("Hello friends! 👋");
+}
+
+// But this doesn't float! It stays put 📍
+sayBye();  // ❌ Error!
+const sayBye = () => {
+    console.log("Goodbye! 👋");
+};</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎨 Variable Hoisting</h4>
+          <pre><code class="language-javascript">
+// var floats up, but its value doesn't! 🎈
+console.log(snack);  // undefined
+var snack = "🍪 Cookie";
+
+// let and const don't float at all! 📍
+console.log(drink);  // ❌ Error!
+let drink = "🥤 Juice";</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🏰 Scope</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>Think of scope like a magical castle with different rooms! Each room has its own special rules about who can see what. 🏰</p>
+
+        <div class="section">
+          <h4>🌍 Global Scope - The Castle Courtyard</h4>
+          <pre><code class="language-javascript">
+// Everyone in the castle can see this!
+let castleName = "Magic Castle";
+let dragonCount = 3;
+
+function announceDragons() {
+    // We can see dragonCount from anywhere!
+    console.log(`We have ${dragonCount} friendly dragons! 🐲`);
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🏠 Local Scope - Your Private Room</h4>
+          <pre><code class="language-javascript">
+function makeMagicPotion() {
+    // These ingredients are only visible in this room!
+    let ingredient1 = "✨ Sparkles";
+    let ingredient2 = "🌈 Rainbow dust";
+    console.log(`Mixing ${ingredient1} with ${ingredient2}...`);
+}
+
+// Can't see the ingredients out here!
+// console.log(ingredient1);  // ❌ Error!</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>📦 Block Scope - Your Treasure Chest</h4>
+          <pre><code class="language-javascript">
+if (true) {
+    // These are locked in the treasure chest!
+    let treasure = "💎 Diamond";
+    const gold = "🏆 Trophy";
+    var magicWand = "⭐ Wand";  // var can escape!
+}
+
+// console.log(treasure);  // ❌ Can't see the diamond!
+// console.log(gold);     // ❌ Can't see the trophy!
+console.log(magicWand);   // ✨ Can see the wand!</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎭 Type Coercion & Conversion</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>JavaScript has magic powers to transform things from one type to another! Let's learn about these magical transformations! ✨</p>
+
+        <div class="section">
+          <h4>🪄 Automatic Magic (Coercion)</h4>
+          <pre><code class="language-javascript">
+// JavaScript's automatic magic tricks!
+console.log("5" + 3);     // "53" (makes a string)
+console.log("5" - 3);     // 2 (makes a number)
+console.log("5" == 5);    // true (transforms for comparison)
+console.log("5" === 5);   // false (no magic allowed!)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎩 Manual Magic (Conversion)</h4>
+          <pre><code class="language-javascript">
+// Transform strings to numbers
+let magicNumber = Number("42");     // 42
+let roundNumber = parseInt("42.9"); // 42
+let decimal = parseFloat("42.9");   // 42.9
+
+// Transform numbers to strings
+let numberString = String(42);      // "42"
+let anotherString = (42).toString(); // "42"
+
+// Transform to true/false
+let isMagical = Boolean("yes");     // true
+let isEmpty = Boolean("");          // false</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎮 Operators</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>Operators are like magic buttons that help us do different things in JavaScript! 🎮</p>
+
+        <div class="section">
+          <h4>➕ Math Magic (Arithmetic)</h4>
+          <pre><code class="language-javascript">
+let candies = 10;
+let friends = 2;
+
+console.log(candies + friends);  // 12 (Addition)
+console.log(candies - friends);  // 8  (Subtraction)
+console.log(candies * friends);  // 20 (Multiplication)
+console.log(candies / friends);  // 5  (Division)
+console.log(candies % friends);  // 0  (Remainder)
+console.log(candies ** friends); // 100 (Power)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🤔 Decision Making (Logical)</h4>
+          <pre><code class="language-javascript">
+let hasWand = true;
+let hasBroom = false;
+
+// AND (&&) - Need both to be true
+let canDoMagic = hasWand && hasBroom;  // false
+
+// OR (||) - Need at least one true
+let canFly = hasWand || hasBroom;      // true
+
+// NOT (!) - Opposite day!
+let cantDoMagic = !hasWand;            // false</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>⚖️ Comparing Things (Comparison)</h4>
+          <pre><code class="language-javascript">
+let myStars = 5;
+let yourStars = 3;
+
+console.log(myStars > yourStars);   // true (Greater than)
+console.log(myStars < yourStars);   // false (Less than)
+console.log(myStars >= 5);          // true (Greater or equal)
+console.log(yourStars <= 3);        // true (Less or equal)
+console.log(myStars === 5);         // true (Exactly equal)
+console.log(myStars !== yourStars); // true (Not equal)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🤖 Robot Talk (Bitwise)</h4>
+          <pre><code class="language-javascript">
+// Robots use binary! (0s and 1s)
+let robot1 = 5;  // 101 in binary
+let robot2 = 3;  // 011 in binary
+
+console.log(robot1 & robot2);  // 1 (AND)
+console.log(robot1 | robot2);  // 7 (OR)
+console.log(robot1 ^ robot2);  // 6 (XOR)
+console.log(~robot1);          // -6 (NOT)
+console.log(robot1 << 1);      // 10 (Left shift)
+console.log(robot1 >> 1);      // 2 (Right shift)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎈 Remember: functions float up, but let and const stay put!</li>
+            <li>🏰 Global scope is like the castle courtyard - everyone can see it</li>
+            <li>🎭 === is safer than == because it doesn't do automatic magic</li>
+            <li>🎮 Use () when mixing different operators</li>
+            <li>🤖 Bitwise operators are like speaking robot language!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎭 Different Ways to Make Functions</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>📜 Function Declarations vs Expressions</h4>
+          <p>There are two magical ways to create functions! Like having two different spells that do the same thing! ✨</p>
+
+          <div class="subsection">
+            <h5>🎪 Function Declaration (The Traditional Spell)</h5>
+            <pre><code class="language-javascript">
+// This is like writing in your spell book first
+function makeIceCream(flavor) {
+    return `Here's your ${flavor} ice cream! 🍦`;
+}
+
+// You can use it before or after you write it!
+console.log(makeIceCream("chocolate"));</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>🎨 Function Expression (The Secret Spell)</h5>
+            <pre><code class="language-javascript">
+// This is like creating a spell on the spot
+const makePizza = function(topping) {
+    return `One ${topping} pizza coming up! 🍕`;
+};
+
+// You can only use it after you create it!
+console.log(makePizza("pepperoni"));</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🏹 Arrow Functions (The Quick Spell)</h4>
+          <p>Arrow functions are like magic shortcuts! They're shorter and faster to write! →</p>
+
+          <pre><code class="language-javascript">
+// Regular function
+const greet = function(name) {
+    return `Hello ${name}! 👋`;
+};
+
+// Same thing as an arrow function (shorter!)
+const greetArrow = (name) => `Hello ${name}! 👋`;
+
+// Arrow function with more magic
+const makePotion = (ingredient1, ingredient2) => {
+    const magic = "✨";
+    return `${magic} Mixed ${ingredient1} and ${ingredient2} ${magic}`;
+};
+
+console.log(greetArrow("Wizard"));  // "Hello Wizard! 👋"
+console.log(makePotion("🌟 Stars", "🌈 Rainbow"));</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎩 Higher-Order Functions</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>These are like master wizards that can control other functions! They can take functions as input or create new functions! 🧙‍♂️</p>
+
+        <div class="section">
+          <h4>🎪 Functions that Take Functions</h4>
+          <pre><code class="language-javascript">
+// A function that uses another function
+function doMagicTrick(magicSpell) {
+    console.log("🎩 Waving wand...");
+    magicSpell();  // Using the magic spell
+    console.log("✨ Magic complete!");
+}
+
+// Creating a simple spell
+const makeRabbitAppear = () => {
+    console.log("🐰 Poof! A rabbit appears!");
+};
+
+// Using our higher-order function
+doMagicTrick(makeRabbitAppear);</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🏰 Functions that Return Functions</h4>
+          <pre><code class="language-javascript">
+// A function factory!
+function createGreetingSpell(magicWord) {
+    return function(name) {
+        return `${magicWord}, ${name}! ✨`;
+    };
+}
+
+// Creating specific greeting spells
+const morningSpell = createGreetingSpell("Good morning");
+const nightSpell = createGreetingSpell("Good night");
+
+console.log(morningSpell("Wizard"));  // "Good morning, Wizard! ✨"
+console.log(nightSpell("Dragon"));    // "Good night, Dragon! ✨"</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎁 Closures</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>Closures are like magical backpacks that functions carry around! They remember things from where they were created! 🎒</p>
+
+        <div class="section">
+          <h4>🎪 Simple Closure Example</h4>
+          <pre><code class="language-javascript">
+function createMagicCounter() {
+    let spellCount = 0;  // This goes in the magical backpack!
+    
+    return function() {
+        spellCount += 1;
+        return `You've cast ${spellCount} spells! ✨`;
+    };
+}
+
+const mySpellCounter = createMagicCounter();
+console.log(mySpellCounter());  // "You've cast 1 spells! ✨"
+console.log(mySpellCounter());  // "You've cast 2 spells! ✨"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🏰 Practical Closure Example</h4>
+          <pre><code class="language-javascript">
+function createPotionMaker(wizardName) {
+    let potionCount = 0;
+    
+    return {
+        makePotion: function(ingredient) {
+            potionCount++;
+            return `${wizardName} made potion #${potionCount} using ${ingredient}! 🧪`;
+        },
+        getPotionCount: function() {
+            return `${wizardName} has made ${potionCount} potions! 📚`;
+        }
+    };
+}
+
+const harryPotions = createPotionMaker("Harry");
+console.log(harryPotions.makePotion("🌟 Sparkles"));
+console.log(harryPotions.getPotionCount());</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>📞 Callback Functions</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>Callback functions are like helpful assistants that wait for something to happen, then spring into action! 🦸‍♂️</p>
+
+        <div class="section">
+          <h4>🎪 Simple Callbacks</h4>
+          <pre><code class="language-javascript">
+// Making a sandwich with help from a callback
+function makeSandwich(callback) {
+    console.log("🥪 Starting to make a sandwich...");
+    console.log("Adding ingredients...");
+    
+    // When we're done, call our helper!
+    callback();
+}
+
+function sayYummy() {
+    console.log("😋 Yummy! Sandwich is ready!");
+}
+
+// Using our callback
+makeSandwich(sayYummy);</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Event Callbacks</h4>
+          <pre><code class="language-javascript">
+// Waiting for a button click
+const magicButton = document.querySelector("#spell-button");
+
+magicButton.addEventListener("click", function() {
+    console.log("🎩 POOF! Magic happening!");
+});
+
+// Waiting for some time
+console.log("🪄 Casting a slow spell...");
+setTimeout(function() {
+    console.log("✨ Spell complete!");
+}, 2000);  // Waits 2 seconds</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🌟 Array Callbacks</h4>
+          <pre><code class="language-javascript">
+// Our magical creatures
+const creatures = ["🦄 Unicorn", "🐉 Dragon", "🧚 Fairy"];
+
+// Using forEach callback
+creatures.forEach(function(creature) {
+    console.log(`Found a ${creature}!`);
+});
+
+// Using map callback
+const happyCreatures = creatures.map(creature => 
+    `Happy ${creature}`
+);
+
+// Using filter callback
+const longNameCreatures = creatures.filter(creature =>
+    creature.length > 8
+);</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎭 Function declarations float up, expressions don't!</li>
+            <li>🏹 Arrow functions are great for short, simple functions</li>
+            <li>🎩 Higher-order functions are like master wizards</li>
+            <li>🎁 Closures remember things from their past</li>
+            <li>📞 Callbacks are like helpful assistants that wait for their turn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🗺️ Maps & Sets</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>🎯 Maps - The Magic Dictionary</h4>
+          <p>Maps are like magical dictionaries where you can store pairs of things! Any type can be a key - not just strings! ✨</p>
+          
+          <pre><code class="language-javascript">
+// Creating a magical inventory
+const inventory = new Map();
+
+// Adding items (key-value pairs)
+inventory.set("🗡️", "Magic Sword");
+inventory.set(42, "💎 Diamond");
+inventory.set(true, "🗝️ Key");
+
+// Getting items
+console.log(inventory.get("🗡️"));  // "Magic Sword"
+console.log(inventory.get(42));        // "💎 Diamond"
+
+// Checking if we have an item
+console.log(inventory.has(true));      // true
+
+// Counting items
+console.log(inventory.size);           // 3
+
+// Removing an item
+inventory.delete("🗡️");
+
+// Clear all items
+inventory.clear();
+
+// Fun with maps
+const backpack = new Map([
+    ['wand', '⚡'],
+    ['potion', '🧪'],
+    ['book', '📚']
+]);
+
+// Loop through items
+for (let [item, emoji] of backpack) {
+    console.log(`${item}: ${emoji}`);
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>✨ Sets - The Unique Collection</h4>
+          <p>Sets are like magical bags that can only hold one of each thing - no duplicates allowed! ✨</p>
+
+          <pre><code class="language-javascript">
+// Creating a magical set
+const spellBook = new Set();
+
+// Adding spells (duplicates are ignored!)
+spellBook.add("Fireball 🔥");
+spellBook.add("Ice Blast ❄️");
+spellBook.add("Fireball 🔥");  // Won't add again!
+
+// Checking if we know a spell
+console.log(spellBook.has("Ice Blast ❄️"));  // true
+
+// Counting unique spells
+console.log(spellBook.size);  // 2
+
+// Remove a spell
+spellBook.delete("Fireball 🔥");
+
+// Clear all spells
+spellBook.clear();
+
+// Creating a set from an array
+const candyBag = new Set(["🍬", "🍭", "🍫", "🍬"]);
+console.log(candyBag.size);  // 3 (no duplicate 🍬)</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🔮 WeakMap & WeakSet</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>These are like magical containers that let things disappear when nobody's using them anymore! 👻</p>
+
+        <div class="section">
+          <h4>🌙 WeakMap - The Vanishing Dictionary</h4>
+          <pre><code class="language-javascript">
+// Creating a magical memory
+const playerMemory = new WeakMap();
+
+// Creating some players
+let wizard = { name: "Merlin" };
+let dragon = { name: "Smaug" };
+
+// Storing secret information
+playerMemory.set(wizard, "Likes candy! 🍬");
+playerMemory.set(dragon, "Scared of mice! 🐭");
+
+// Getting secrets
+console.log(playerMemory.get(wizard));  // "Likes candy! 🍬"
+
+// If we forget about a player...
+wizard = null;  // The secret will vanish too!</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🌠 WeakSet - The Vanishing Collection</h4>
+          <pre><code class="language-javascript">
+// Creating a list of active players
+const activePlayers = new WeakSet();
+
+// Adding players
+let player1 = { name: "Alice" };
+let player2 = { name: "Bob" };
+
+activePlayers.add(player1);
+activePlayers.add(player2);
+
+// Checking if player is active
+console.log(activePlayers.has(player1));  // true
+
+// When player leaves the game...
+player1 = null;  // Player vanishes from active list!</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💫 When to Use Weak Collections</h4>
+          <ul>
+            <li>🎮 Use WeakMap when you want to attach secret data to objects</li>
+            <li>🎯 Use WeakSet when you want to mark objects as "special"</li>
+            <li>🧹 They help clean up memory automatically!</li>
+            <li>🎭 Perfect for temporary data that should disappear</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>📦 JSON (JavaScript Object Notation)</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and unpack data! 🎁</p>
+
+        <div class="section">
+          <h4>📝 Writing JSON</h4>
+          <pre><code class="language-javascript">
+// Creating a magical character
+const wizard = {
+    name: "Luna",
+    age: 12,
+    spells: ["✨ Sparkle", "🌟 Glow", "🌈 Rainbow"],
+    pet: {
+        name: "Whiskers",
+        type: "🐱 Cat"
+    },
+    isApprentice: true,
+    wand: null
+};
+
+// Turning into JSON (packing the suitcase)
+const packedWizard = JSON.stringify(wizard);
+console.log(packedWizard);
+// {"name":"Luna","age":12,"spells":["✨ Sparkle","🌟 Glow","🌈 Rainbow"]...}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>📖 Reading JSON</h4>
+          <pre><code class="language-javascript">
+// Getting a packed object (like receiving a package)
+const packedData = '{"name":"Star","power":100,"items":["🗡️","🛡️"]}';
+
+// Unpacking the object
+const hero = JSON.parse(packedData);
+console.log(hero.name);     // "Star"
+console.log(hero.items[0]); // "🗡️"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎨 JSON Rules</h4>
+          <pre><code class="language-javascript">
+// Good JSON values:
+{
+    "string": "Hello! 👋",
+    "number": 42,
+    "boolean": true,
+    "null": null,
+    "array": [1, 2, 3],
+    "object": {"key": "value"}
+}
+
+// Things that don't work in JSON:
+{
+    "function": function() {},  // ❌ No functions
+    "date": new Date(),        // ❌ Becomes a string
+    "undefined": undefined     // ❌ Gets removed
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🗺️ Maps are perfect when you need any type as keys</li>
+            <li>✨ Sets are great for keeping unique items</li>
+            <li>🔮 Weak collections help clean up memory</li>
+            <li>📦 JSON is for sharing data between programs</li>
+            <li>🎁 Remember: JSON is just text, but we can turn it into real objects!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🧬 Object-Oriented JavaScript</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>🔄 Prototypes & Prototype Chain</h4>
+          <p>Think of prototypes like a magical family tree where objects get superpowers from their parents and grandparents! 👨‍👩‍👧‍👦</p>
+
+          <pre><code class="language-javascript">
+// Creating a magical creature blueprint
+const Animal = {
+    eat() {
+        return "Yum yum! 😋";
+    }
+};
+
+const FlyingAnimal = Object.create(Animal);
+FlyingAnimal.fly = function() {
+    return "Swoosh! ✈️";
+};
+
+const Dragon = Object.create(FlyingAnimal);
+Dragon.breatheFire = function() {
+    return "ROAR! 🔥";
+};
+
+// Creating a baby dragon
+const babyDragon = Object.create(Dragon);
+
+// Baby dragon can do everything!
+console.log(babyDragon.eat());        // "Yum yum! 😋"
+console.log(babyDragon.fly());        // "Swoosh! ✈️"
+console.log(babyDragon.breatheFire()); // "ROAR! 🔥"
+
+// Looking up the family tree
+console.log(babyDragon.__proto__ === Dragon);        // true
+console.log(Dragon.__proto__ === FlyingAnimal);      // true
+console.log(FlyingAnimal.__proto__ === Animal);      // true</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🏰 ES6 Classes</h4>
+          <p>Classes are like magic schools that teach objects how to behave! A nicer way to create object templates! 🎓</p>
+
+          <pre><code class="language-javascript">
+class MagicSchool {
+    constructor(name) {
+        this.name = name;
+        this.students = [];
+    }
+
+    enrollStudent(student) {
+        this.students.push(student);
+        return `Welcome to ${this.name}, ${student}! 🎉`;
+    }
+
+    static createSchoolMotto() {
+        return "Learning magic is fun! ✨";
+    }
+}
+
+// Creating a new school
+const hogwarts = new MagicSchool("Hogwarts");
+console.log(hogwarts.enrollStudent("Harry"));
+console.log(MagicSchool.createSchoolMotto());</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>👉 this Keyword</h4>
+          <p>The 'this' keyword is like a magic wand that points to different things depending on how you use it! 🪄</p>
+
+          <pre><code class="language-javascript">
+// Regular function: 'this' changes based on who calls it
+function castSpell(spell) {
+    return `${this.name} casts ${spell}!`;
+}
+
+// Arrow function: 'this' is locked to where it's created
+const makePotion = (ingredient) => {
+    this.potionCount += 1;
+    return `Made potion #${this.potionCount} with ${ingredient}!`;
+}
+
+// Using 'this' in a class
+class Wizard {
+    constructor(name) {
+        this.name = name;
+        this.health = 100;
+    }
+    
+    castSpell(spell) {
+        return `${this.name} casts ${spell}!`;
+    }
+}
+
+const merlin = new Wizard("Merlin");
+console.log(merlin.castSpell("Fireball"));  // "Merlin casts Fireball!"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎁 Getters & Setters</h4>
+          <p>Getters and Setters are like friendly guards that protect and manage your magical properties! 💂‍♂️</p>
+
+          <pre><code class="language-javascript">
+class MagicWand {
+    constructor() {
+        this._power = 50;
+        this._spells = [];
+    }
+
+    // Getter - Check the wand's power
+    get power() {
+        return `Wand power: ${this._power}⚡`;
+    }
+
+    // Setter - Make sure power is valid
+    set power(value) {
+        if (value < 0) {
+            console.log("Power can't be negative! 🚫");
+            return;
+        }
+        if (value > 100) {
+            console.log("Too much power! 💥");
+            return;
+        }
+        this._power = value;
+        console.log(`Wand power set to ${value}! ⚡`);
+    }
+
+    // Getter - List all spells
+    get spellBook() {
+        return this._spells.length ? 
+            `Known spells: ${this._spells.join(", ")} 📖` :
+            "No spells learned yet! 📖";
+    }
+}
+
+const wand = new MagicWand();
+wand.power = 75;          // "Wand power set to 75! ⚡"
+console.log(wand.power);  // "Wand power: 75⚡"
+wand.power = 150;         // "Too much power! 💥"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>👨‍👦 Inheritance</h4>
+          <p>Inheritance is how magical powers get passed down from parent to child classes! Like magical families! 🧙‍♂️</p>
+
+          <pre><code class="language-javascript">
+// Parent class - Magical Being
+class MagicalBeing {
+    constructor(name) {
+        this.name = name;
+        this.magicPower = 100;
+    }
+
+    speak() {
+        return `${this.name} says hello! 👋`;
+    }
+
+    useMagic() {
+        return `${this.name} uses magic! ✨`;
+    }
+}
+
+// Child class - Wizard
+class Wizard extends MagicalBeing {
+    constructor(name, wand) {
+        super(name);  // Call parent's constructor
+        this.wand = wand;
+    }
+
+    // Add new method
+    castSpell(spell) {
+        return `${this.name} waves ${this.wand} and casts ${spell}! 🌟`;
+    }
+
+    // Override parent's method
+    useMagic() {
+        return `${super.useMagic()} With extra sparkles! ✨✨✨`;
+    }
+}
+
+// Child class - Dragon
+class Dragon extends MagicalBeing {
+    constructor(name, fireColor) {
+        super(name);
+        this.fireColor = fireColor;
+    }
+
+    breatheFire() {
+        return `${this.name} breathes ${this.fireColor} fire! 🔥`;
+    }
+}
+
+const harry = new Wizard("Harry", "holly wand");
+const norbert = new Dragon("Norbert", "green");
+
+console.log(harry.speak());      // From parent
+console.log(harry.castSpell("Lumos")); // Own method
+console.log(harry.useMagic());   // Overridden method
+
+console.log(norbert.speak());    // From parent
+console.log(norbert.breatheFire()); // Own method</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🧬 Prototypes are like magical family trees - powers flow down!</li>
+            <li>🏰 Classes make it easy to create many similar magical objects</li>
+            <li>👉 'this' is like a mirror showing who's using the magic</li>
+            <li>🎁 Getters and Setters are friendly guards for your magical properties</li>
+            <li>👨‍👦 Inheritance passes magical powers from parent to child</li>
+            <li>🌟 Use 'super' to call parent class methods when overriding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>📦 JSON (JavaScript Object Notation)</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and unpack data! 🎁</p>
+
+        <div class="section">
+          <h4>📝 Writing JSON</h4>
+          <pre><code class="language-javascript">
+// Creating a magical character
+const wizard = {
+    name: "Luna",
+    age: 12,
+    spells: ["✨ Sparkle", "🌟 Glow", "🌈 Rainbow"],
+    pet: {
+        name: "Whiskers",
+        type: "🐱 Cat"
+    },
+    isApprentice: true,
+    wand: null
+};
+
+// Turning into JSON (packing the suitcase)
+const packedWizard = JSON.stringify(wizard);
+console.log(packedWizard);
+// {"name":"Luna","age":12,"spells":["✨ Sparkle","🌟 Glow","🌈 Rainbow"]...}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>📖 Reading JSON</h4>
+          <pre><code class="language-javascript">
+// Getting a packed object (like receiving a package)
+const packedData = '{"name":"Star","power":100,"items":["🗡️","🛡️"]}';
+
+// Unpacking the object
+const hero = JSON.parse(packedData);
+console.log(hero.name);     // "Star"
+console.log(hero.items[0]); // "🗡️"</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎨 JSON Rules</h4>
+          <pre><code class="language-javascript">
+// Good JSON values:
+{
+    "string": "Hello! 👋",
+    "number": 42,
+    "boolean": true,
+    "null": null,
+    "array": [1, 2, 3],
+    "object": {"key": "value"}
+}
+
+// Things that don't work in JSON:
+{
+    "function": function() {},  // ❌ No functions
+    "date": new Date(),        // ❌ Becomes a string
+    "undefined": undefined     // ❌ Gets removed
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🗺️ Maps are perfect when you need any type as keys</li>
+            <li>✨ Sets are great for keeping unique items</li>
+            <li>🔮 Weak collections help clean up memory</li>
+            <li>📦 JSON is for sharing data between programs</li>
+            <li>🎁 Remember: JSON is just text, but we can turn it into real objects!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🛡️ Error Handling</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>🎯 try...catch...finally - The Safety Net</h4>
+          <p>Think of try...catch...finally like a magical safety net for your spells! If something goes wrong, we can catch it and handle it gracefully! 🪄</p>
+
+          <pre><code class="language-javascript">
+// Making a potion with safety measures! 🧪
+function makePotion(ingredients) {
+    try {
+        console.log("Starting to brew potion... 🧪");
+        
+        if (!ingredients) {
+            throw new Error("No ingredients found! 😱");
+        }
+
+        if (ingredients.length === 0) {
+            throw new Error("Empty ingredients list! 📝");
+        }
+
+        // Dangerous potion making...
+        const potion = ingredients.join(" + ");
+        console.log(`Successfully made potion: ${potion} ✨`);
+
+    } catch (error) {
+        // Handle any problems
+        console.log(`Oops! ${error.message} 🚫`);
+        console.log("Cleaning up the mess... 🧹");
+
+    } finally {
+        // This always runs, no matter what!
+        console.log("Putting away the cauldron! 🏺");
+    }
+}
+
+// Let's try making some potions!
+makePotion(["frog", "mushroom", "sparkles"]);
+makePotion([]);  // Empty ingredients
+makePotion();    // No ingredients at all</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎲 throw Statement - The Alert Spell</h4>
+          <p>The throw statement is like casting an alert spell when something goes wrong! We can throw different types of alerts! 🚨</p>
+
+          <pre><code class="language-javascript">
+function castSpell(spellName, magicPower) {
+    try {
+        console.log(`Attempting to cast ${spellName}... 🪄`);
+
+        // Throw different types of errors
+        if (!spellName) {
+            throw "You forgot the spell name! 😅";  // String error
+        }
+
+        if (magicPower < 0) {
+            throw 42;  // Number error (not common, but possible!)
+        }
+
+        if (magicPower < 50) {
+            throw new Error("Not enough magic power! 🔋");  // Error object
+        }
+
+        if (!spellBook.includes(spellName)) {
+            throw {
+                name: "SpellError",
+                message: "Unknown spell!",
+                spell: spellName
+            };  // Object error
+        }
+
+        console.log("Spell cast successfully! ✨");
+
+    } catch (error) {
+        // Handle different types of errors
+        if (typeof error === "string") {
+            console.log("Message: " + error);
+        } else if (typeof error === "number") {
+            console.log("Error code: " + error);
+        } else if (error instanceof Error) {
+            console.log("Error: " + error.message);
+        } else {
+            console.log("Unknown spell error:", error.spell);
+        }
+    }
+}
+
+const spellBook = ["lumos", "wingardium leviosa"];
+castSpell("", 100);        // Missing spell name
+castSpell("lumos", -10);   // Negative power
+castSpell("lumos", 30);    // Not enough power
+castSpell("alohomora", 100); // Unknown spell</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎨 Custom Errors - Making Your Own Alert Spells</h4>
+          <p>We can create our own special types of errors for different magical problems! 🌟</p>
+
+          <pre><code class="language-javascript">
+// Create custom error for spell problems
+class SpellError extends Error {
+    constructor(spell, reason) {
+        super(`Failed to cast ${spell}: ${reason}`);
+        this.name = "SpellError";
+        this.spell = spell;
+    }
+}
+
+// Create custom error for potion problems
+class PotionError extends Error {
+    constructor(ingredient, reason) {
+        super(`Bad ingredient ${ingredient}: ${reason}`);
+        this.name = "PotionError";
+        this.ingredient = ingredient;
+    }
+}
+
+// Using our custom errors in a magic school
+function teachMagic(student) {
+    try {
+        console.log(`Teaching ${student} some magic... 🎓`);
+
+        if (student === "Neville") {
+            throw new SpellError(
+                "wingardium leviosa",
+                "wand movement incorrect"
+            );
+        }
+
+        if (student === "Ron") {
+            throw new PotionError(
+                "dragon scale",
+                "expired last week"
+            );
+        }
+
+        console.log(`${student} learned the spell perfectly! 🌟`);
+
+    } catch (error) {
+        if (error instanceof SpellError) {
+            console.log(`🪄 Spell practice needed! ${error.message}`);
+            console.log(`Let's practice ${error.spell} again!`);
+        } else if (error instanceof PotionError) {
+            console.log(`🧪 Potion problem! ${error.message}`);
+            console.log(`Check ingredient: ${error.ingredient}`);
+        } else {
+            console.log("Unknown magical mishap! 😅");
+        }
+    }
+}
+
+// Let's teach some students!
+teachMagic("Harry");   // Success!
+teachMagic("Neville"); // Spell problem
+teachMagic("Ron");     // Potion problem</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Use try...catch to handle errors gracefully</li>
+            <li>🧹 finally always runs - perfect for cleanup!</li>
+            <li>🎲 throw can send different types of errors</li>
+            <li>🎨 Make custom errors for specific problems</li>
+            <li>🔍 Check error types with instanceof</li>
+            <li>📝 Always include helpful error messages</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎮 DOM Manipulation</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>🎯 Selecting Elements - Finding Magic Items</h4>
+          <p>Finding elements is like using a magic wand to point at things on your webpage! Let's learn different spells to find them! 🪄</p>
+
+          <pre><code class="language-javascript">
+// HTML we're working with:
+/*
+<div id="magicBox" class="container">
+    <h1 class="title">Magic Shop</h1>
+    <ul class="items">
+        <li class="item">Magic Wand ⚡</li>
+        <li class="item">Crystal Ball 🔮</li>
+        <li class="item">Potion Bottle 🧪</li>
+    </ul>
+</div>
+*/
+
+// Finding by ID - most powerful spell!
+const magicBox = document.getElementById('magicBox');
+console.log(magicBox);  // <div id="magicBox">...</div>
+
+// Finding by class - gather all matching items
+const items = document.getElementsByClassName('item');
+console.log(items.length);  // 3 items
+
+// Finding by tag name - get all elements of type
+const listItems = document.getElementsByTagName('li');
+console.log(listItems.length);  // 3 li elements
+
+// querySelector - the Swiss Army knife of selection!
+const title = document.querySelector('.title');  // First match
+console.log(title.textContent);  // "Magic Shop"
+
+// querySelectorAll - find ALL matching elements
+const allItems = document.querySelectorAll('.item');
+allItems.forEach(item => {
+    console.log(item.textContent);  // Prints each item
+});</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎲 Event Delegation - Smart Magic</h4>
+          <p>Event delegation is like having a wise wizard watch over an area and handle any magic that happens there! 🧙‍♂️</p>
+
+          <pre><code class="language-javascript">
+// HTML we're working with:
+/*
+<div id="spellBook">
+    <h2>Spell Book 📖</h2>
+    <ul id="spellList">
+        <li data-spell="fire">Fireball 🔥</li>
+        <li data-spell="ice">Freeze ❄️</li>
+        <li data-spell="wind">Tornado 🌪️</li>
+    </ul>
+    <!-- New spells can be added later! -->
+</div>
+*/
+
+// Instead of adding listeners to each spell...
+const spellList = document.getElementById('spellList');
+
+// Add ONE listener to the parent!
+spellList.addEventListener('click', (event) => {
+    // Check if we clicked a spell
+    if (event.target.matches('li')) {
+        const spell = event.target.dataset.spell;
+        
+        // Cast different spells
+        switch(spell) {
+            case 'fire':
+                console.log('WHOOSH! 🔥');
+                break;
+            case 'ice':
+                console.log('FREEZE! ❄️');
+                break;
+            case 'wind':
+                console.log('SWOOSH! 🌪️');
+                break;
+        }
+    }
+});
+
+// Even new spells added later will work!
+const newSpell = document.createElement('li');
+newSpell.textContent = 'Lightning ⚡';
+newSpell.dataset.spell = 'lightning';
+spellList.appendChild(newSpell);</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>✨ Dynamic Element Creation - Conjuring Magic</h4>
+          <p>Creating elements is like conjuring magical items out of thin air! Let's make some magic happen! 🎩</p>
+
+          <pre><code class="language-javascript">
+// Creating a magical inventory system
+function createMagicItem(itemName, itemType, itemPower) {
+    // Create the main container
+    const item = document.createElement('div');
+    item.className = 'magic-item';
+
+    // Add the item name
+    const name = document.createElement('h3');
+    name.textContent = itemName;
+    item.appendChild(name);
+
+    // Add item type with icon
+    const type = document.createElement('span');
+    type.className = 'item-type';
+    switch(itemType) {
+        case 'wand':
+            type.textContent = '⚡ Wand';
+            break;
+        case 'potion':
+            type.textContent = '🧪 Potion';
+            break;
+        case 'scroll':
+            type.textContent = '📜 Scroll';
+            break;
+    }
+    item.appendChild(type);
+
+    // Add power level stars
+    const power = document.createElement('div');
+    power.className = 'power-level';
+    power.textContent = '✨'.repeat(itemPower);
+    item.appendChild(power);
+
+    // Add a delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '🗑️';
+    deleteBtn.onclick = () => item.remove();
+    item.appendChild(deleteBtn);
+
+    return item;
+}
+
+// Using our magic item creator
+const inventory = document.getElementById('inventory');
+
+// Create some magical items
+const magicWand = createMagicItem('Elder Wand', 'wand', 5);
+const healingPotion = createMagicItem('Health Potion', 'potion', 3);
+const fireScroll = createMagicItem('Fire Scroll', 'scroll', 4);
+
+// Add them to the inventory
+inventory.appendChild(magicWand);
+inventory.appendChild(healingPotion);
+inventory.appendChild(fireScroll);
+
+// Add some style
+magicWand.style.backgroundColor = '#FFE1FF';
+magicWand.style.padding = '10px';
+magicWand.style.margin = '5px';
+magicWand.style.borderRadius = '5px';</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎨 Modifying Elements - Transforming Magic</h4>
+          <p>Once we have our elements, we can transform them with different magical properties! 🌈</p>
+
+          <pre><code class="language-javascript">
+// Get our magic item
+const magicItem = document.querySelector('.magic-item');
+
+// Change text content
+magicItem.textContent = 'Enchanted!';
+
+// Modify classes
+magicItem.classList.add('enchanted');    // Add class
+magicItem.classList.remove('normal');     // Remove class
+magicItem.classList.toggle('glowing');    // Toggle class
+
+// Change styles
+magicItem.style.backgroundColor = '#FFE1FF';
+magicItem.style.transform = 'rotate(5deg)';
+magicItem.style.boxShadow = '0 0 10px purple';
+
+// Change attributes
+magicItem.setAttribute('data-spell', 'levitate');
+magicItem.setAttribute('title', 'Magical Item!');
+
+// Add event listeners
+magicItem.addEventListener('mouseover', () => {
+    magicItem.style.transform = 'scale(1.1)';
+});
+
+magicItem.addEventListener('mouseout', () => {
+    magicItem.style.transform = 'scale(1)';
+});</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Use getElementById for unique elements</li>
+            <li>🔍 querySelector is super flexible for finding elements</li>
+            <li>🎲 Event delegation makes handling many elements easy</li>
+            <li>✨ createElement + appendChild for making new elements</li>
+            <li>🎨 Use classList for managing classes</li>
+            <li>🌈 style property for direct CSS changes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎨 JavaScript Types & Best Practices</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <div class="section">
+          <h4>🎯 Types in JavaScript</h4>
+          <p>JavaScript has two kinds of magical ingredients: Primitive Types (simple ingredients) and Complex Types (magical potions)! 🧪</p>
+
+          <div class="subsection">
+            <h5>1️⃣ Primitive Types - Simple Ingredients</h5>
+            <p>When you use these, you're working with the actual value - like holding the real ingredient! 🍎</p>
+
+            <pre><code class="language-javascript">
+// String - for text and words 📝
+let spell = "Abracadabra";
+let magicWord = 'Alakazam';
+
+// Number - for regular numbers 🔢
+let wizardAge = 142;
+let magicPower = 99.9;
+
+// Boolean - for yes/no decisions ✅
+let isWizard = true;
+let canFly = false;
+
+// Null - when something is empty on purpose 📭
+let familiarPet = null;  // No pet yet!
+
+// Undefined - when something doesn't exist yet 🌫️
+let futureSpell;
+
+// Symbol - for unique magical seals ⚡
+const magicSeal = Symbol('wizard');
+
+// BigInt - for REALLY big numbers 🌟
+const universeAge = 9007199254740991n;
+
+// Primitive values are always copied!
+let magicNumber = 42;
+let copyNumber = magicNumber;
+copyNumber = 100;
+console.log(magicNumber);  // Still 42!</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>2️⃣ Complex Types - Magical Potions</h5>
+            <p>These are like magical potions - when you share them, you're sharing the same potion! 🧪</p>
+
+            <pre><code class="language-javascript">
+// Objects - magical containers 📦
+const wizard = {
+    name: 'Merlin',
+    age: 300,
+    spells: ['fire', 'ice']
+};
+
+// Arrays - magical lists 📜
+const spellBook = ['Lumos', 'Wingardium Leviosa', 'Expecto Patronum'];
+
+// Functions - magical spells ✨
+function castSpell(spellName) {
+    return `Casting ${spellName}!`;
+}
+
+// Complex types are shared by reference!
+const bag1 = ['wand', 'potion'];
+const bag2 = bag1;        // Both point to same bag!
+bag2.push('crystal');
+console.log(bag1);        // ['wand', 'potion', 'crystal']</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>🌟 Best Practices - The Wizard's Code</h4>
+
+          <div class="subsection">
+            <h5>1️⃣ Using const and let</h5>
+            <pre><code class="language-javascript">
+// Use const for things that shouldn't change
+const wizardName = 'Harry';    // Can't change this!
+const magicSpells = [];        // Can add/remove spells, but can't reassign
+
+// Use let when you need to change values
+let manaPoints = 100;
+let currentSpell = 'fire';
+
+// Block scope magic! 🎭
+{
+    const secretSpell = 'Lumos';   // Only exists in this block
+    let powerLevel = 9000;         // Also only here
+}
+// secretSpell and powerLevel don't exist out here!</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>2️⃣ Working with Objects</h5>
+            <pre><code class="language-javascript">
+// Creating magical objects ✨
+const spellBook = {
+    // Property shorthand
+    title,  // Same as title: title
+
+    // Method shorthand
+    cast(spell) {
+        return `Casting ${spell}!`;
+    },
+
+    // Computed property names
+    [`spell_${Date.now()}`]: 'New Spell!',
+
+    // Spread operator for copying
+    ...otherSpells
+};
+
+// Object destructuring magic
+const { title, author, year = 2024 } = spellBook;
+
+// Spread operator for cloning
+const newBook = { ...spellBook };</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>3️⃣ Array Magic</h5>
+            <pre><code class="language-javascript">
+// Creating arrays
+const potions = [];               // Empty cauldron
+const ingredients = [...potions]; // Clone the potions
+
+// Adding items
+potions.push('Health Potion');    // Add to end
+potions.unshift('Mana Potion');   // Add to start
+
+// Array destructuring
+const [first, second, ...rest] = potions;
+
+// Array methods with arrow functions
+const powerfulPotions = potions
+    .filter((potion) => potion.power > 50)
+    .map((potion) => `Super ${potion.name}`);</code></pre>
+          </div>
+
+          <div class="subsection">
+            <h5>4️⃣ Function Best Practices</h5>
+            <pre><code class="language-javascript">
+// Arrow functions for short callbacks
+const spells = ['fire', 'ice', 'lightning'];
+const powerfulSpells = spells.map((spell) => `mega ${spell}`);
+
+// Default parameters
+function createPotion(
+    name = 'Mystery Potion',
+    power = 100,
+    color = 'purple',
+) {
+    return { name, power, color };
+}
+
+// Rest parameters
+function mixPotions(...ingredients) {
+    return ingredients.join(' + ');
+}
+
+// Destructuring in parameters
+function examineWizard({ name, level, house }) {
+    return `${name} is level ${level} from ${house}`;
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="section">
+          <h4>💡 Cool Tips!</h4>
+          <ul>
+            <li>🎯 Use const by default, let when needed</li>
+            <li>🧪 Remember: primitives copy, complex types share</li>
+            <li>📦 Use object/array spread for cloning</li>
+            <li>🎭 Keep variables in the smallest scope needed</li>
+            <li>🔮 Use destructuring to extract values</li>
+            <li>⚡ Arrow functions for short callbacks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🗺️ Map and Set</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎯 Special Collections in JavaScript!</h3>
+
+        <div class="section">
+          <h4>🗺️ Map - The Magic Dictionary</h4>
+          <p>Map is like a magical dictionary where you can use ANYTHING as a word to look up! Not just strings! ✨</p>
+          
+          <pre><code class="language-javascript">
+// Creating a magical map
+const treasureMap = new Map();
+
+// Adding treasures (key-value pairs)
+treasureMap.set('castle', '🏰');
+treasureMap.set(42, '💎');
+treasureMap.set(true, '🗝️');
+
+// Getting treasures
+console.log(treasureMap.get('castle'));  // 🏰
+console.log(treasureMap.get(42));        // 💎
+
+// Checking if we have a treasure
+console.log(treasureMap.has(true));      // true
+
+// Counting treasures
+console.log(treasureMap.size);           // 3
+
+// Removing a treasure
+treasureMap.delete('castle');
+
+// Clear all treasures
+treasureMap.clear();
+
+// Fun with maps
+const backpack = new Map([
+    ['wand', '⚡'],
+    ['potion', '🧪'],
+    ['book', '📚']
+]);
+
+// Loop through items
+for (let [item, emoji] of backpack) {
+    console.log(`${item}: ${emoji}`);
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>✨ Set - The Unique Collection</h4>
+          <p>Set is like a magical bag that only keeps one of each thing - no duplicates allowed! 🎁</p>
+
+          <pre><code class="language-javascript">
+// Creating a magical set
+const spellBook = new Set();
+
+// Adding spells (duplicates are ignored!)
+spellBook.add('Fireball 🔥');
+spellBook.add('Ice Blast ❄️');
+spellBook.add('Fireball 🔥');  // Won't add again!
+
+// Checking if we know a spell
+console.log(spellBook.has('Ice Blast ❄️'));  // true
+
+// Counting unique spells
+console.log(spellBook.size);  // 2
+
+// Remove a spell
+spellBook.delete('Fireball 🔥');
+
+// Clear all spells
+spellBook.clear();
+
+// Creating a set from an array
+const candyBag = new Set(['🍬', '🍭', '🍫', '🍬']);
+console.log(candyBag.size);  // 3 (no duplicate 🍬)</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Examples</h4>
+          <pre><code class="language-javascript">
+// Unique player scores
+const scores = [100, 90, 100, 95, 90];
+const uniqueScores = new Set(scores);
+console.log([...uniqueScores]);  // [100, 90, 95]
+
+// Player inventory system
+const inventory = new Map();
+inventory.set('gold', 100);
+inventory.set('gems', ['💎', '💍', '💎']);
+inventory.set('weapons', new Set(['🗡️', '🏹', '🛡️']));</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>📝 Regular Expressions</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🔍 Pattern Matching Magic!</h3>
+
+        <div class="section">
+          <h4>✨ Creating Patterns</h4>
+          <pre><code class="language-javascript">
+// Two ways to create patterns
+const pattern1 = /magic/;                // Magic spell way
+const pattern2 = new RegExp('magic');    // Wizard scroll way
+
+// Finding patterns in text
+const story = "The magic cat had magical powers!";
+console.log(pattern1.test(story));       // true
+
+// Finding all matches
+const matches = story.match(/magic/g);   // ['magic', 'magic']</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎯 Pattern Special Powers</h4>
+          <pre><code class="language-javascript">
+// Match any character (.)
+/c.t/.test('cat');    // true
+/c.t/.test('cut');    // true
+
+// Start (^) and end ($)
+/^Hi!$/.test('Hi!');  // true (whole message)
+
+// Multiple characters (*)
+/wo*w/.test('ww');    // true
+/wo*w/.test('wow');   // true
+/wo*w/.test('woow');  // true
+
+// One or more (+)
+/wo+w/.test('ww');    // false
+/wo+w/.test('wow');   // true
+/wo+w/.test('woow');  // true
+
+// Optional character (?)
+/colou?r/.test('color');   // true
+/colou?r/.test('colour');  // true</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Examples</h4>
+          <pre><code class="language-javascript">
+// Spell checker
+const spellPattern = /[A-Z][a-z]+ Spell!/;
+console.log(spellPattern.test('Fire Spell!'));     // true
+console.log(spellPattern.test('ice spell!'));      // false
+
+// Phone number checker
+const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+console.log(phonePattern.test('123-456-7890'));    // true
+
+// Email checker
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+console.log(emailPattern.test('wizard@magic.com')); // true</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>📦 Modules</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🎯 Organizing Your Magic Spells!</h3>
+
+        <div class="section">
+          <h4>📚 Exporting Magic</h4>
+          <p>Put your spells in different scrolls (files)!</p>
+          
+          <pre><code class="language-javascript">
+// spells.js - Our spell collection
+export const fireball = () => {
+    return "🔥 Whoosh!";
+};
+
+export const iceBeam = () => {
+    return "❄️ Freeze!";
+};
+
+// Default spell
+export default function magicMissile() {
+    return "✨ Pew pew!";
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>📖 Importing Magic</h4>
+          <pre><code class="language-javascript">
+// game.js - Using our spells
+import magicMissile, { fireball, iceBeam } from './spells.js';
+
+console.log(magicMissile());  // ✨ Pew pew!
+console.log(fireball());      // 🔥 Whoosh!
+console.log(iceBeam());       // ❄️ Freeze!
+
+// Import everything as one object
+import * as allSpells from './spells.js';
+console.log(allSpells.fireball());</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Module Example: Magic Game</h4>
+          <pre><code class="language-javascript">
+// player.js
+export class Wizard {
+    constructor(name) {
+        this.name = name;
+        this.mana = 100;
+    }
+    
+    castSpell(spell) {
+        this.mana -= 10;
+        return `${this.name} casts ${spell}!`;
+    }
+}
+
+// game.js
+import { Wizard } from './player.js';
+import { fireball } from './spells.js';
+
+const harry = new Wizard("Harry");
+console.log(harry.castSpell(fireball()));</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-header">
+        <h2>🎲 Math and Random</h2>
+        <span class="toggle">+</span>
+      </div>
+      <div class="topic-content">
+        <h3>🔢 Math Magic and Random Fun!</h3>
+
+        <div class="section">
+          <h4>🧮 Math Powers</h4>
+          <pre><code class="language-javascript">
+// Rounding numbers
+console.log(Math.round(3.6));    // 4
+console.log(Math.floor(3.6));    // 3
+console.log(Math.ceil(3.2));     // 4
+
+// Finding biggest and smallest
+console.log(Math.max(5, 10, 3)); // 10
+console.log(Math.min(5, 10, 3)); // 3
+
+// Powers and roots
+console.log(Math.pow(2, 3));     // 8 (2³)
+console.log(Math.sqrt(16));      // 4 (√16)
+
+// Absolute value
+console.log(Math.abs(-5));       // 5</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎲 Random Fun</h4>
+          <pre><code class="language-javascript">
+// Random number between 0 and 1
+console.log(Math.random());  // 0.123456...
+
+// Random whole number between 1 and 10
+function rollDice() {
+    return Math.floor(Math.random() * 10) + 1;
+}
+
+// Random item from array
+const treasures = ['💎', '🗡️', '🛡️', '🧪'];
+function randomTreasure() {
+    const index = Math.floor(Math.random() * treasures.length);
+    return treasures[index];
+}</code></pre>
+        </div>
+
+        <div class="section">
+          <h4>🎮 Fun Examples</h4>
+          <pre><code class="language-javascript">
+// Magic damage calculator
+function calculateSpellDamage(baseDamage) {
+    const critical = Math.random() < 0.2;  // 20% chance
+    return critical ? Math.round(baseDamage * 1.5) : baseDamage;
+}
+
+// Random color generator
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Random potion mixer
+const ingredients = ['🌿', '🍄', '🌺', '✨'];
+function mixPotion() {
+    const amount = Math.floor(Math.random() * 3) + 2;
+    let potion = '🧪 ';
+    for (let i = 0; i < amount; i++) {
+        potion += ingredients[Math.floor(Math.random() * ingredients.length)];
+    }
+    return potion;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
     <script>
@@ -1229,6 +3094,6 @@ async function loadPhotoAlbum() {
         setInterval(setRandomQuote, 20000); // Change quote every 10 seconds
       });
     </script>
-</body>
+  </body>
 
 </html>
