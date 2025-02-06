@@ -3,31 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Button</title>
+    <title>Language Switcher</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+        }
+        .tabs {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
-        }
-        .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        .tab {
+            padding: 10px;
+            margin-right: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .active {
+            background-color: #007BFF;
+            color: white;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <button class="btn">Click Me</button>
+
+    <div class="tabs">
+        <div id="englishTab" class="tab active" onclick="switchTab('english')">English</div>
+        <div id="banglaTab" class="tab" onclick="switchTab('bangla')">Bangla</div>
+    </div>
+
+    <div id="english" class="content">
+        <p>This is the content in English.</p>
+    </div>
+
+    <div id="bangla" class="content" style="display: none;">
+        <p>এটি বাংলায় কনটেন্ট।</p>
+    </div>
+
+    <script>
+        function switchTab(language) {
+            const englishTab = document.getElementById('englishTab');
+            const banglaTab = document.getElementById('banglaTab');
+            const englishContent = document.getElementById('english');
+            const banglaContent = document.getElementById('bangla');
+
+            if (language === 'english') {
+                englishTab.classList.add('active');
+                banglaTab.classList.remove('active');
+                englishContent.style.display = 'block';
+                banglaContent.style.display = 'none';
+            } else {
+                englishTab.classList.remove('active');
+                banglaTab.classList.add('active');
+                englishContent.style.display = 'none';
+                banglaContent.style.display = 'block';
+            }
+        }
+    </script>
+
 </body>
 </html>
