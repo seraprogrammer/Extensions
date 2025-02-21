@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Documentation A-Z</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PrismJS/prism-themes@master/themes/prism-holi-theme.css">
+
+
   <style>
     :root {
-      --bg-color: #1a1a2e;
+      --bg-color: #0a0a0f;
       --text-color: #e0e0e0;
       --accent-color: #4a4ae6;
-      --code-bg: #2d2d2d;
-      --header-bg: #0a192f;
+      --code-bg: #1a1a1a;
+      --header-bg: #0d1117;
+      --topic-bg: #161b22;
+      --topic-hover: #21262d;
+      --border-color: #30363d;
     }
 
     body {
@@ -26,83 +31,90 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
 
     header {
       background-color: var(--header-bg);
-      padding: 15px 0;
+      padding: 20px 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-      margin: 0 0 10px 0;
-      font-size: 1.5em;
-      font-weight: 600;
-      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid var(--border-color);
     }
 
     #quote {
-      font-size: 0.9em;
+      font-size: 0.95em;
       font-style: italic;
-      color: #a8b2d1;
+      color: #8b949e;
       margin: 0;
       min-height: 2.5em;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0 20px;
     }
 
     .topic {
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 5px;
-      margin-bottom: 15px;
+      background-color: var(--topic-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 20px;
       overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .topic:hover {
+      transform: translateY(-2px);
     }
 
     .topic-header {
-      padding: 15px;
+      padding: 20px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--topic-bg);
       transition: background-color 0.3s ease;
     }
 
     .topic-header:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: var(--topic-hover);
     }
 
     .topic-header h2 {
       margin: 0;
-      font-size: 1.2em;
-      font-weight: 500;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #58a6ff;
     }
 
     .topic-content {
       display: none;
-      padding: 15px;
+      padding: 25px;
+      border-top: 1px solid var(--border-color);
     }
 
     pre {
       background-color: var(--code-bg);
-      border-radius: 5px;
-      padding: 15px;
+      border-radius: 8px;
+      padding: 20px;
       overflow-x: auto;
+      border: 1px solid var(--border-color);
     }
 
     code {
       font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 0.95em;
     }
 
     .toggle {
+      color: #58a6ff;
+      font-size: 1.2em;
       transition: transform 0.3s ease;
     }
 
@@ -110,20 +122,34 @@
       transform: rotate(45deg);
     }
 
-    .concept-icon {
-      font-size: 2em;
-      margin-right: 10px;
-      vertical-align: middle;
+    .section {
+      margin-bottom: 30px;
     }
 
-    .concept-title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
+    .section h4 {
+      color: #58a6ff;
+      margin-top: 0;
+      font-size: 1.2em;
     }
 
-    .concept-title h4 {
-      margin: 0;
+    .subsection {
+      margin-left: 20px;
+      padding-left: 15px;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .subsection h5 {
+      color: #79c0ff;
+      margin: 15px 0 10px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      color: #8b949e;
+    }
+
+    ul li strong {
+      color: var(--text-color);
     }
   </style>
 </head>
@@ -163,7 +189,8 @@ favColors.push("green");   // We can change what's inside the list
 
         <div class="section">
           <h4>🎈 let - The Modern Way</h4>
-          <p>let is like a friendly box - you can change what's inside, but you can't make another box with the same name!</p>
+          <p>let is like a friendly box - you can change what's inside, but you can't make another box with the same
+            name!</p>
           <pre><code class="language-javascript">
 let myPets = 2;     // Start with 2 pets
 myPets = 3;         // Got a new pet! Now we have 3
@@ -426,7 +453,8 @@ switch (day) {
 
         <div class="section">
           <h4>📦 What is an Object?</h4>
-          <p>Think of an object like a magical toy box where you can store different things with labels! Each thing has a name (key) and a value.</p>
+          <p>Think of an object like a magical toy box where you can store different things with labels! Each thing has
+            a name (key) and a value.</p>
           <pre><code class="language-javascript">
 // A simple toy box object
 let toyBox = {
@@ -554,7 +582,8 @@ console.log(schoolBag.sidePocket.pencilCase[0]);   // "pencil ✏️"</code></pr
 
         <div class="section">
           <h4>🚂 What is an Array?</h4>
-          <p>Think of an array like a train with many cars - each car can hold something different, and we can count them from 0!</p>
+          <p>Think of an array like a train with many cars - each car can hold something different, and we can count
+            them from 0!</p>
           <pre><code class="language-javascript">
 // A train of fruits
 let fruitTrain = ["🍎", "🍌", "🍊", "🍇", "🍓"];
@@ -688,7 +717,7 @@ console.log(highScores);  // [92, 95]</code></pre>
 
     <div class="topic">
       <div class="topic-header">
-        <h2>🎉 Events </h2>  
+        <h2>🎉 Events </h2>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
@@ -696,7 +725,8 @@ console.log(highScores);  // [92, 95]</code></pre>
 
         <div class="section">
           <h4>🎮 What are Events?</h4>
-          <p>Events are like magic triggers that happen when someone does something on your webpage - like clicking a button, moving the mouse, or typing on the keyboard!</p>
+          <p>Events are like magic triggers that happen when someone does something on your webpage - like clicking a
+            button, moving the mouse, or typing on the keyboard!</p>
 
           <div class="subsection">
             <h5>🎯 Common Events We Can Listen For</h5>
@@ -1219,7 +1249,8 @@ async function loadPhotoAlbum() {
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>Imagine you have a magic balloon that makes things float to the top! In JavaScript, some things float up before your code runs - that's hoisting! 🎈</p>
+        <p>Imagine you have a magic balloon that makes things float to the top! In JavaScript, some things float up
+          before your code runs - that's hoisting! 🎈</p>
 
         <div class="section">
           <h4>🎪 Function Hoisting</h4>
@@ -1258,7 +1289,8 @@ let drink = "🥤 Juice";</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>Think of scope like a magical castle with different rooms! Each room has its own special rules about who can see what. 🏰</p>
+        <p>Think of scope like a magical castle with different rooms! Each room has its own special rules about who can
+          see what. 🏰</p>
 
         <div class="section">
           <h4>🌍 Global Scope - The Castle Courtyard</h4>
@@ -1310,7 +1342,8 @@ console.log(magicWand);   // ✨ Can see the wand!</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>JavaScript has magic powers to transform things from one type to another! Let's learn about these magical transformations! ✨</p>
+        <p>JavaScript has magic powers to transform things from one type to another! Let's learn about these magical
+          transformations! ✨</p>
 
         <div class="section">
           <h4>🪄 Automatic Magic (Coercion)</h4>
@@ -1429,7 +1462,8 @@ console.log(robot1 >> 1);      // 2 (Right shift)</code></pre>
       <div class="topic-content">
         <div class="section">
           <h4>📜 Function Declarations vs Expressions</h4>
-          <p>There are two magical ways to create functions! Like having two different spells that do the same thing! ✨</p>
+          <p>There are two magical ways to create functions! Like having two different spells that do the same thing! ✨
+          </p>
 
           <div class="subsection">
             <h5>🎪 Function Declaration (The Traditional Spell)</h5>
@@ -1487,7 +1521,8 @@ console.log(makePotion("🌟 Stars", "🌈 Rainbow"));</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>These are like master wizards that can control other functions! They can take functions as input or create new functions! 🧙‍♂️</p>
+        <p>These are like master wizards that can control other functions! They can take functions as input or create
+          new functions! 🧙‍♂️</p>
 
         <div class="section">
           <h4>🎪 Functions that Take Functions</h4>
@@ -1534,7 +1569,8 @@ console.log(nightSpell("Dragon"));    // "Good night, Dragon! ✨"</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>Closures are like magical backpacks that functions carry around! They remember things from where they were created! 🎒</p>
+        <p>Closures are like magical backpacks that functions carry around! They remember things from where they were
+          created! 🎒</p>
 
         <div class="section">
           <h4>🎪 Simple Closure Example</h4>
@@ -1583,7 +1619,8 @@ console.log(harryPotions.getPotionCount());</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>Callback functions are like helpful assistants that wait for something to happen, then spring into action! 🦸‍♂️</p>
+        <p>Callback functions are like helpful assistants that wait for something to happen, then spring into action!
+          🦸‍♂️</p>
 
         <div class="section">
           <h4>🎪 Simple Callbacks</h4>
@@ -1665,8 +1702,9 @@ const longNameCreatures = creatures.filter(creature =>
       <div class="topic-content">
         <div class="section">
           <h4>🎯 Maps - The Magic Dictionary</h4>
-          <p>Maps are like magical dictionaries where you can store pairs of things! Any type can be a key - not just strings! ✨</p>
-          
+          <p>Maps are like magical dictionaries where you can store pairs of things! Any type can be a key - not just
+            strings! ✨</p>
+
           <pre><code class="language-javascript">
 // Creating a magical inventory
 const inventory = new Map();
@@ -1804,7 +1842,8 @@ player1 = null;  // Player vanishes from active list!</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and unpack data! 🎁</p>
+        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and
+          unpack data! 🎁</p>
 
         <div class="section">
           <h4>📝 Writing JSON</h4>
@@ -1882,7 +1921,8 @@ console.log(hero.items[0]); // "🗡️"</code></pre>
       <div class="topic-content">
         <div class="section">
           <h4>🔄 Prototypes & Prototype Chain</h4>
-          <p>Think of prototypes like a magical family tree where objects get superpowers from their parents and grandparents! 👨‍👩‍👧‍👦</p>
+          <p>Think of prototypes like a magical family tree where objects get superpowers from their parents and
+            grandparents! 👨‍👩‍👧‍👦</p>
 
           <pre><code class="language-javascript">
 // Creating a magical creature blueprint
@@ -1918,7 +1958,8 @@ console.log(FlyingAnimal.__proto__ === Animal);      // true</code></pre>
 
         <div class="section">
           <h4>🏰 ES6 Classes</h4>
-          <p>Classes are like magic schools that teach objects how to behave! A nicer way to create object templates! 🎓</p>
+          <p>Classes are like magic schools that teach objects how to behave! A nicer way to create object templates! 🎓
+          </p>
 
           <pre><code class="language-javascript">
 class MagicSchool {
@@ -2021,7 +2062,8 @@ wand.power = 150;         // "Too much power! 💥"</code></pre>
 
         <div class="section">
           <h4>👨‍👦 Inheritance</h4>
-          <p>Inheritance is how magical powers get passed down from parent to child classes! Like magical families! 🧙‍♂️</p>
+          <p>Inheritance is how magical powers get passed down from parent to child classes! Like magical families!
+            🧙‍♂️</p>
 
           <pre><code class="language-javascript">
 // Parent class - Magical Being
@@ -2101,7 +2143,8 @@ console.log(norbert.breatheFire()); // Own method</code></pre>
         <span class="toggle">+</span>
       </div>
       <div class="topic-content">
-        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and unpack data! 🎁</p>
+        <p>JSON is like a magical language that helps objects travel between different places! It's how we pack and
+          unpack data! 🎁</p>
 
         <div class="section">
           <h4>📝 Writing JSON</h4>
@@ -2179,7 +2222,8 @@ console.log(hero.items[0]); // "🗡️"</code></pre>
       <div class="topic-content">
         <div class="section">
           <h4>🎯 try...catch...finally - The Safety Net</h4>
-          <p>Think of try...catch...finally like a magical safety net for your spells! If something goes wrong, we can catch it and handle it gracefully! 🪄</p>
+          <p>Think of try...catch...finally like a magical safety net for your spells! If something goes wrong, we can
+            catch it and handle it gracefully! 🪄</p>
 
           <pre><code class="language-javascript">
 // Making a potion with safety measures! 🧪
@@ -2218,7 +2262,8 @@ makePotion();    // No ingredients at all</code></pre>
 
         <div class="section">
           <h4>🎲 throw Statement - The Alert Spell</h4>
-          <p>The throw statement is like casting an alert spell when something goes wrong! We can throw different types of alerts! 🚨</p>
+          <p>The throw statement is like casting an alert spell when something goes wrong! We can throw different types
+            of alerts! 🚨</p>
 
           <pre><code class="language-javascript">
 function castSpell(spellName, magicPower) {
@@ -2354,7 +2399,8 @@ teachMagic("Ron");     // Potion problem</code></pre>
       <div class="topic-content">
         <div class="section">
           <h4>🎯 Selecting Elements - Finding Magic Items</h4>
-          <p>Finding elements is like using a magic wand to point at things on your webpage! Let's learn different spells to find them! 🪄</p>
+          <p>Finding elements is like using a magic wand to point at things on your webpage! Let's learn different
+            spells to find them! 🪄</p>
 
           <pre><code class="language-javascript">
 // HTML we're working with:
@@ -2394,7 +2440,8 @@ allItems.forEach(item => {
 
         <div class="section">
           <h4>🎲 Event Delegation - Smart Magic</h4>
-          <p>Event delegation is like having a wise wizard watch over an area and handle any magic that happens there! 🧙‍♂️</p>
+          <p>Event delegation is like having a wise wizard watch over an area and handle any magic that happens there!
+            🧙‍♂️</p>
 
           <pre><code class="language-javascript">
 // HTML we're working with:
@@ -2565,7 +2612,8 @@ magicItem.addEventListener('mouseout', () => {
       <div class="topic-content">
         <div class="section">
           <h4>🎯 Types in JavaScript</h4>
-          <p>JavaScript has two kinds of magical ingredients: Primitive Types (simple ingredients) and Complex Types (magical potions)! 🧪</p>
+          <p>JavaScript has two kinds of magical ingredients: Primitive Types (simple ingredients) and Complex Types
+            (magical potions)! 🧪</p>
 
           <div class="subsection">
             <h5>1️⃣ Primitive Types - Simple Ingredients</h5>
@@ -2753,7 +2801,7 @@ function examineWizard({ name, level, house }) {
         <div class="section">
           <h4>🗺️ Map - The Magic Dictionary</h4>
           <p>Map is like a magical dictionary where you can use ANYTHING as a word to look up! Not just strings! ✨</p>
-          
+
           <pre><code class="language-javascript">
 // Creating a magical map
 const treasureMap = new Map();
@@ -2917,7 +2965,7 @@ console.log(emailPattern.test('wizard@magic.com')); // true</code></pre>
         <div class="section">
           <h4>📚 Exporting Magic</h4>
           <p>Put your spells in different scrolls (files)!</p>
-          
+
           <pre><code class="language-javascript">
 // spells.js - Our spell collection
 export const fireball = () => {
@@ -3094,6 +3142,6 @@ function mixPotion() {
         setInterval(setRandomQuote, 20000); // Change quote every 10 seconds
       });
     </script>
-  </body>
+</body>
 
 </html>
