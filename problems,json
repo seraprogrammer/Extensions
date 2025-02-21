@@ -1,0 +1,43 @@
+{
+  "problems": [
+    {
+      "id": 1,
+      "title": "Create a Simple Web Page",
+      "difficulty": "basic",
+      "description": "Build a basic HTML page with a header, paragraph, and image element.",
+      "design": {
+        "cardColor": "#e0f7fa",
+        "borderRadius": "8px",
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Responsive Navigation Bar",
+      "difficulty": "mid",
+      "description": "Develop a responsive navigation bar using HTML and CSS. Ensure it adjusts correctly on mobile devices.",
+      "design": {
+        "cardColor": "#ffe0b2",
+        "borderRadius": "8px",
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Complex Form Validation",
+      "difficulty": "hard",
+      "description": "Create a multi-step form with advanced JavaScript validations and error handling.",
+      "design": {
+        "cardColor": "#f8bbd0",
+        "borderRadius": "8px",
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
+      }
+    }
+  ],
+  "tips": [
+    "Practice coding regularly with small projects to reinforce your skills.",
+    "Focus on understanding the DOM and how JavaScript interacts with HTML.",
+    "Use browser developer tools to inspect elements and debug your code.",
+    "Follow online tutorials and read documentation to learn JS quickly."
+  ]
+}
